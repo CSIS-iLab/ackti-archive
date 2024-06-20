@@ -1,0 +1,62 @@
+@use "../abstracts/" as *;
+
+.icon {
+  vertical-align: middle;
+  transition: all 0.3s ease-in-out;
+  width: 1rem;
+  height: 1rem;
+
+  &__tags {
+    pointer-events: none;
+    width: rem(32);
+    height: rem(32);
+    margin-right: rem(8);
+  }
+
+  &__select {
+    width: 1.3rem;
+    height: 1.3rem;
+  }
+
+  &__info {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  &__share {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  &__social {
+    width: rem(20);
+    height: rem(20);
+  }
+
+  &__report {
+    width: 1rem;
+    height: 1rem;
+    position: relative;
+    bottom: -2px;    
+  }
+
+  &__back-top {
+    width: rem(18);
+    height: rem(18);
+  }
+}
+
+.active {
+  // color: $color-text-gray-200;
+  filter: invert(57%) sepia(7%) saturate(666%) hue-rotate(180deg) brightness(92%) contrast(89%);
+}
+
+.inactive {
+  // color: $color-text-gray-100;
+  filter: invert(85%) sepia(7%) saturate(361%) hue-rotate(182deg) brightness(94%) contrast(84%);
+}
+
+.hide {
+  display: none;
+  transition: display 0.3s ease-in-out;
+}

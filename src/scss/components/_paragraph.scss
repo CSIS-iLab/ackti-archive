@@ -1,0 +1,60 @@
+@use '../abstracts'as *;
+
+.p1 {
+  @extend %text-style-paragraph-1;
+  
+  &--italic {
+    @extend %text-style-paragraph-1-italic;
+  }
+}
+
+.p2 {
+  @extend %text-style-paragraph-2;
+}
+
+
+.ui {
+  &--1{
+    @extend %text-style-ui-1;
+    
+    &--bold{
+      @extend %text-style-ui-1-bold;
+    }
+  }
+
+  &--2{
+    @extend %text-style-ui-2;
+    
+    &--bold{
+      @extend %text-style-ui-2-bold;
+    }
+  }
+
+  &--3{
+    @extend %text-style-ui-3;
+
+    &--italic {
+      @extend %text-style-ui-3-italic;
+    }
+  }
+
+  &--4{
+    @extend %text-style-ui-4;
+
+    &--underline {
+      @extend %text-style-ui-4-underline;
+    }
+  }
+
+  &--5{
+    @extend %text-style-ui-5;
+    
+    &--caps {
+      @extend %text-style-ui-5-caps;
+    }
+
+    &--bold-caps {
+      @extend %text-style-ui-5-bold-caps;
+    }
+  }
+}

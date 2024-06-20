@@ -1,0 +1,91 @@
+@use 'sass:color';
+
+// Variables
+$color-text-white: rgba(250,250,250,1);
+
+$color-text-gray-100: rgba(188,194,206,1);
+$color-text-gray-200: rgba(126,134,148,1);
+$color-text-gray-300: rgba(70,79,96,1);
+$color-text-gray-400: rgba(43,47,56,1);
+$color-text-gray-500: rgba(23,28,38,1);
+
+$color-borders-gray-100: rgba(211,212,214,1);
+$color-borders-gray-200: rgba(198,200,203,1);
+$color-borders-gray-300: rgba(177,180,185,1);
+$color-borders-gray-400: rgba(29,31,35,1);
+
+$color-background-white: rgba(255,255,255,1);
+
+$color-background-gray-100: rgba(248,248,248,1);
+$color-background-gray-200: rgba(240,240,240,1);
+$color-background-gray-300: rgba(228,228,228,1);
+
+$color-background-light-blue-100: rgba(239,245,248,1);
+$color-background-light-blue-200: rgba(231,239,244,1);
+$color-background-light-blue-300: rgba(151, 200, 247, 0.480);
+
+$color-scrollbar-background: rgb(75, 75, 75);
+
+$color-focus-outline: rgba(151, 200, 247, 0.680);
+
+$color-brand-blue-600: rgba(20,117,220,1);
+$color-brand-blue-700: rgba(0,84,164,1);
+$color-brand-blue-800: rgba(1,43,105,1);
+$color-brand-blue-870: rgba(1, 43, 105, 0.7);
+
+$color-tags-anticipating-climate-impacts: rgba(211,61,62,1);
+$color-tags-comprehensive-planning-grid-modernization: rgba(176,152,200,1);
+$color-tags-data-transparency-or-visualization: rgba(82,26,71,1);
+$color-tags-distributed-energy-resources-de-rs: rgba(14,66,106,1);
+$color-tags-electric-vehicles: rgba(152,210,224,1);
+$color-tags-energy-storage: rgba(155,178,108,1);
+$color-tags-environmental-justice: rgba(250,187,20,1);
+$color-tags-innovation-and-clusters: rgba(219,167,110,1);
+$color-tags-local-level-planning-or-support: rgba(129,89,53,1);
+$color-tags-microgrids: rgba(240,82,35,1);
+$color-tags-technology-or-system-standards: rgba(27,27,27,1);
+$color-tags-workforce-development: rgba(4,168,95,1);
+
+$color-policy-goals-resilience: rgba(222,60,12,1);
+$color-policy-goals-resilience-text: rgba(197,47,2,1);
+$color-policy-goals-resilience-fill: rgba(255,232,225,1);
+
+$color-policy-goals-emissions-reduction: rgba(72,59,119,1);
+$color-policy-goals-emissions-reduction-text: rgba(66,54,109,1);
+$color-policy-goals-emissions-reduction-fill: rgba(240,241,250,1);
+
+$color-policy-goals-economic-development: rgba(58,111,111,1);
+$color-policy-goals-economic-development-text: rgba(33,90,88,1);
+$color-policy-goals-economic-development-fill: rgba(234,246,249,1);
+
+
+/*----------  Fonts  ----------*/
+$font__synthese: synthese, sans-serif;
+
+$font-family-default: $font__synthese;
+$font-size-default: 16px;
+$font-weight-default: 400;
+$font-weight-bold: 700;
+$font-line-height-default: 1.15;
+
+/*----------  Structure  ----------*/
+$breakpoints: (
+  'medium': 50em,
+  'large': 90em,
+  // 'large': 90em,
+);
+
+// Used to calculate font size in font-clamp mixin.
+// TODO: check these values with Lindsay. where exactly they came from?
+$container-min-width: 30rem; 
+$container-max-width: 87.5rem;
+$container-width-diff: 57.5rem; // Difference in rems between small & large breakpoints
+
+$size__container-max-width: 1400px;
+$size__content-max-width: 680px;
+$size__intro-content-wide-max-width: 1100px;
+$size__page-max-width: 1200px;
+
+
+/*----------  Transitions  ----------*/
+$transition__link: all 0.2s ease-in-out;

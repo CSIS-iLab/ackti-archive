@@ -1,0 +1,7 @@
+@use "../abstracts/" as *;
+
+.label {
+  @extend %text-style-ui-5-caps;
+  color: $color-text-gray-400;
+  padding-bottom: rem(4);
+}

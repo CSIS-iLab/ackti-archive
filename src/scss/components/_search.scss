@@ -1,0 +1,102 @@
+@use "../abstracts/" as *;
+
+/* clears the ‘X’ from Internet Explorer */
+input[type=search]::-ms-clear {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+input[type=search]::-ms-reveal {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+/* clears the ‘X’ from Chrome */
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  display: none;
+}
+
+label[aria-hidden="true"],
+[hidden] {
+  display: none;
+}
+
+.search {
+  position: relative;
+  background-color: $color-background-white;
+  @extend %text-style-ui-2;
+
+  &__input {
+    border: 0;
+    background-color: transparent;
+    padding-left: rem(32);
+    padding-right: rem(32);
+    padding-top: rem(8);
+    padding-bottom: rem(8);
+
+    &::placeholder {
+      color: $color-text-gray-200;
+    
+    }
+
+    &:focus {
+      outline: 0;
+      box-shadow: 0 1px $color-brand-blue-600;
+      border-radius: 0;
+    }
+    
+
+    &:hover {
+      background-color: $color-background-gray-100;
+      border-radius: 0;
+
+      &:not(:placeholder-shown) {
+        background-color: transparent;
+        box-shadow: 0 1px $color-borders-gray-100;
+        border-radius: 0;
+      }
+    }    
+  }
+
+  &__input--active {
+    box-shadow: 0 1px $color-brand-blue-600;
+    border-radius: 0;
+  }
+
+  &__btn {
+    position: relative;
+    right: rem(5);
+    bottom: rem(8);
+    color: $color-text-gray-200;
+
+    &-clear {
+      position: absolute;
+      font-size: rem(24);
+
+      &:focus {
+        outline: 3px solid $color-focus-outline;
+      }
+    }
+
+    &-clear--hidden {
+      display: none;
+    }
+  }
+
+  &__icon {
+    position: absolute;
+    //padding-top: rem(9);
+    padding-right: .375rem;
+    padding-left: .375rem;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    // color: $color-text-gray-200;
+    filter: invert(57%) sepia(7%) saturate(666%) hue-rotate(180deg) brightness(92%) contrast(89%);
+  }
+}

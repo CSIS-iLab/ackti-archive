@@ -1,0 +1,35 @@
+{
+  "name": "svelte-app",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -c -w",
+    "start": "sirv public --no-clear"
+  },
+  "keywords": [],
+  "author": "José Romero",
+  "license": "See license in LICENSE",
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^17.1.0",
+    "@rollup/plugin-node-resolve": "^11.2.1",
+    "@rollup/plugin-replace": "^4.0.0",
+    "@rollup/plugin-terser": "^0.4.4",
+    "@types/d3-fetch": "^3.0.7",
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8.4.38",
+    "rollup": "^2.79.1",
+    "rollup-plugin-css-only": "^3.1.0",
+    "rollup-plugin-livereload": "^2.0.5",
+    "rollup-plugin-svelte": "^7.2.0",
+    "sass": "^1.77.0",
+    "simple-svelte-autocomplete": "^2.5.2",
+    "svelte": "^3.59.2",
+    "svelte-preprocess": "^4.10.7",
+    "svelte-select": "^4.4.7"
+  },
+  "dependencies": {
+    "d3-fetch": "^3.0.1",
+    "sirv-cli": "^2.0.2"
+  }
+}

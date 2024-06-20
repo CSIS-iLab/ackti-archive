@@ -1,0 +1,61 @@
+@use '../abstracts/' as *;
+
+/*===============================
+=            Header            =
+===============================*/
+
+.header {
+  // background: linear-gradient(201.75deg, rgba(253, 254, 255, 0.5) 4.76%, rgba(224, 239, 248, 0.5) 29.06%, rgba(248, 248, 248, 0.5) 71.58%),
+  // linear-gradient(164.14deg, #E0EFF8 25.66%, rgba(224, 239, 248, 0.14) 62.15%),
+  // linear-gradient(0deg, #F8F8F8, #F8F8F8),
+  // #F5F5F5;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  border-bottom: 1px solid $color-text-gray-100;
+  padding-right: var(--container-padding);
+  padding-left: var(--container-padding);
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: rem(8);
+    margin-bottom: rem(4);
+
+    @include breakpoint('medium') {
+      padding-top: rem(16);
+      margin-bottom: rem(8);
+    }
+  }
+
+  &__logo {
+    display: inherit;
+    background-image: url(/assets/static/CSIS-logo.svg);
+    background-repeat: no-repeat;
+    width: 88px;
+    height: 24px;
+    // color gray-300
+    filter: invert(29%) sepia(14%) saturate(711%) hue-rotate(181deg) brightness(94%) contrast(89%);
+
+    @include breakpoint('medium') {
+      background: no-repeat url(/assets/static/CSIS-logo-long.svg);
+      width: 286px;
+      height: 24px;
+      font-size: rem(16);
+    }
+  }
+
+  a, button {
+    &:hover {
+      // color brand-blue-600
+      filter: invert(39%) sepia(72%) saturate(6596%) hue-rotate(200deg) brightness(100%) contrast(84%);
+      // color: $color-focus-outline;
+    }
+    
+    &:focus {
+      outline: 4px solid $color-focus-outline;
+      border-radius: 1px;
+    }
+  }
+}

@@ -1,0 +1,61 @@
+@use '../abstracts' as *;
+
+body {
+  font-family: $font-family-default;
+  @include font-size($font-size-default);
+  line-height: $font-line-height-default;
+}
+
+a {
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+
+  &:not([class]) {
+    color: inherit;
+  }
+
+  &:not(.btn):not([class]):hover,
+  &:not(.btn):not([class]):focus,
+  &:not(.btn):not([class]):active {
+    color: inherit;
+  }
+
+  &:hover,
+  &:active,
+  &:focus {
+    outline: 0;
+  }
+
+  &:not(.btn):focus {
+    background-color: $color-background-light-blue-100;
+  }
+
+  &:visited {
+    color: $color-brand-blue-800;
+  }
+}
+
+/*----------  Utility Classes  ----------*/
+.text--semibold {
+  font-weight: 600;
+}
+
+.text--bold {
+  font-weight: 700;
+}
+
+.text--italic {
+  font-style: italic;
+}
+
+.text--caps {
+  text-transform: uppercase;
+}
+
+.text--short {
+  @extend %text-style-short;
+}
+
+.text--long {
+  @extend %text-style-long;
+}

@@ -1,0 +1,104 @@
+@use '../abstracts/' as *;
+
+.checkbox {
+  &__container {
+    display: flex;
+    align-items: center;
+    // margin-bottom: rem(10);
+    padding: rem(8);
+
+    &:hover {
+      background-color: $color-background-gray-100;
+      transition: background-color 0.2s ease-in-out;
+    }
+
+    &:focus {
+      background-color: $color-background-gray-100;
+      background-color: #1475DC;
+      transition: background-color 0.2s ease-in-out;
+    }
+  }
+  
+  &__label {
+    display: flex;
+
+    span {
+      margin-right: rem(12);
+    }
+  }
+}
+
+
+input[type=checkbox] {
+  position: absolute;
+  opacity: 0;
+
+  + label {
+    @extend %text-style-ui-2;
+    line-height: 1;
+    color: $color-text-gray-400;
+    position: relative;
+    padding-top: .5rem;
+    padding-left: rem(33);
+    cursor: pointer;
+
+    &::before {
+      content: '';
+      border-width: 1px;
+      border-style: solid;
+      border-color: $color-borders-gray-300;
+      border-radius: 2px;
+      display: block;
+      position: absolute;
+      width: rem(20);
+      height: rem(20);
+      transition: background 0.3s ease-in-out, border 0.3s ease-in-out;
+      top: rem(8);
+      left: 0;
+    }
+
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 5px;
+      left: 5px;
+      width: .4rem;
+      height: .75rem;
+    }
+  }  
+
+  &:hover {
+    + label::before {
+    border-color: $color-brand-blue-700;
+    }
+  }
+
+  &:focus {
+    + label::before {
+      outline-width: 3px;
+      outline-style: solid;
+      outline-color: $color-focus-outline;
+    }
+  }
+
+  &:checked {
+    + label::before {
+      background-color: $color-brand-blue-600;
+      border-color: $color-brand-blue-600;
+    }
+
+    + label::after {
+      content: 'L';
+      font-family: arial;
+      color: $color-background-white;
+      -ms-transform: scaleX(-1) rotate(-35deg); /* IE 9 */
+      -webkit-transform: scaleX(-1) rotate(-35deg); /* Chrome, Safari, Opera */
+      transform: scaleX(-1) rotate(-35deg);
+      line-height: rem(16);
+      padding-top: rem(3);
+      padding-right: .8rem;
+      text-align: center;
+    }
+  }
+}

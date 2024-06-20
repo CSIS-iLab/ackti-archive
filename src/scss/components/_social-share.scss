@@ -1,0 +1,56 @@
+@use '../abstracts' as *;
+
+.share {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+
+  &__link {
+    @include font-size(16px);
+    padding: rem(8);
+    color: $color-text-gray-300;
+    transition: $transition__link;
+    // color gray-300
+    filter: invert(29%) sepia(14%) saturate(711%) hue-rotate(181deg) brightness(94%) contrast(89%);
+  
+    &:hover {
+      // color: $color-brand-blue-600;
+      filter: invert(39%) sepia(72%) saturate(6596%) hue-rotate(200deg) brightness(100%) contrast(84%);
+    }
+  
+    &:focus {
+      filter: invert(39%) sepia(72%) saturate(6596%) hue-rotate(200deg) brightness(100%) contrast(84%);
+      outline: 3px solid $color-focus-outline;
+    }
+  }
+
+}
+
+.social {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+
+  &__link {
+    @include font-size(16px);
+    padding: rem(8);
+    color: $color-text-gray-300;
+    transition: $transition__link;
+    // color gray-300
+    filter: invert(29%) sepia(14%) saturate(711%) hue-rotate(181deg) brightness(94%) contrast(89%);
+  
+    &:hover {
+      // color: $color-brand-blue-600;
+      filter: invert(39%) sepia(72%) saturate(6596%) hue-rotate(200deg) brightness(100%) contrast(84%);
+    }
+
+    &:focus {
+      filter: invert(39%) sepia(72%) saturate(6596%) hue-rotate(200deg) brightness(100%) contrast(84%);
+      outline: 3px solid $color-focus-outline;
+    }
+  }
+}

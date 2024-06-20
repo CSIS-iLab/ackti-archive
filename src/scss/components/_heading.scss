@@ -1,0 +1,25 @@
+@use '../abstracts'as *;
+
+h1 {
+  @extend %text-style-heading-1;
+}
+
+h2 {
+  @extend %text-style-heading-2;
+}
+
+h3 {
+  @extend %text-style-heading-3;
+}
+
+h4 {
+  @extend %text-style-heading-4;
+}
+
+h5 {
+  @extend %text-style-heading-5;
+}
+
+h6 {
+  @extend %text-style-heading-6;
+}

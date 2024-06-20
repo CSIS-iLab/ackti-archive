@@ -1,0 +1,241 @@
+@use "../abstracts/" as *;
+
+main {
+	margin: 0 auto;
+}
+
+.intro-content {
+	padding-top: rem(132);
+	max-width: $size__intro-content-wide-max-width;
+	text-align: center;
+
+	&__overline {
+		// TODO: find better names for these modifiers
+		&--small {
+			@extend %text-style-ui-5-caps;
+			color: $color-text-gray-400;
+			margin-bottom: rem(4);
+		}
+
+		&--regular {
+			@extend %text-style-ui-4-caps;
+			color: $color-text-gray-300;
+
+			&::after {
+				content: "";
+				display: block;
+				border-bottom: 2px solid $color-borders-gray-100;
+				width: 23px;
+				height: 2px;
+				margin: 0 auto;
+				margin-top: rem(8);
+			}
+		}
+	}
+
+	&__title {
+		margin-top: rem(12);
+		margin-bottom: rem(48);
+
+		@extend %text-style-heading-1;
+		color: $color-text-gray-500;
+		text-align: center;
+	}
+
+	&__introduction {
+		margin: 0 auto;
+		margin-bottom: rem(16);
+		max-width: $size__content-max-width;
+		text-align: center;
+		@extend %text-style-paragraph-1;
+
+		span {
+			color: $color-brand-blue-600;
+		}
+	}
+
+	&__more {
+
+		&__icon-container {
+			position: relative;
+			margin-right: rem(4);
+			top: rem(2);
+		}
+	}
+
+	&__link {
+		color: $color-brand-blue-600;
+		text-decoration: none;
+		transition: $transition__link;
+
+		&--more {
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			@extend %text-style-ui-3;
+		}
+
+		.intro-content__more__icon-container {
+			// color brand-blue-600
+			filter: invert(39%) sepia(72%) saturate(6596%) hue-rotate(200deg)
+				brightness(100%) contrast(84%);
+			transition: $transition__link;
+		}
+
+		&:hover {
+			color: $color-brand-blue-700;
+
+			.intro-content__more__icon-container {
+				// color: $color-brand-blue-700;
+				filter: invert(22%) sepia(54%) saturate(2858%) hue-rotate(194deg)
+					brightness(92%) contrast(101%);
+				transition: $transition__link;
+			}
+		}
+
+		&:visited {
+			color: $color-brand-blue-870;
+
+			.intro-content__more__icon-container {
+				// color: $color-brand-blue-800;
+				// opacity: 0.7;
+				filter: invert(9%) sepia(41%) saturate(6837%) hue-rotate(211deg)
+					brightness(98%) contrast(99%);
+			}
+		}
+
+		&:focus {
+			color: $color-brand-blue-700;
+			background-color: $color-background-light-blue-300;
+			outline-color: $color-focus-outline;
+			.intro-content__more__icon-container {
+				// color: $color-brand-blue-700;
+				filter: invert(22%) sepia(54%) saturate(2858%) hue-rotate(194deg)
+					brightness(92%) contrast(101%);
+			}
+		}
+	}
+
+	&__graphs {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		margin: 0 auto;
+		padding-top: rem(56);
+		padding-bottom: 10rem;
+		justify-content: center;
+		max-width: $size__content-max-width;
+
+		@include breakpoint("medium") {
+			flex-direction: row;
+			max-width: $size__intro-content-wide-max-width;
+		}
+	}
+}
+
+.intro-bar {
+	width: 100%;
+
+	&:first-child {
+		@include breakpoint("medium") {
+			margin-right: 3rem;
+		}
+	}
+
+	&:last-child {
+		margin-top: 2rem;
+		@include breakpoint("medium") {
+			margin-top: 0;
+			margin-left: 3rem;
+		}
+	}
+
+	&__title {
+		margin-bottom: rem(10);
+		@extend %text-style-ui-5-bold-caps;
+	}
+
+	&__content {
+		display: flex;
+	}
+
+	&__column {
+		&--labels div,
+		&--bars .bar {
+			height: rem(24);
+			margin-bottom: rem(12);
+			@extend %text-style-ui-3;
+			line-height: 1;
+		}
+
+		&--labels {
+			width: 40%;
+			margin-right: 2rem;
+
+			@include breakpoint("small") {
+				width: rem(200);
+			}
+
+			div {
+				display: flex;
+				align-items: center;
+			}
+		}
+
+		&--bars {
+			position: relative;
+			display: block;
+			flex-grow: 2;
+			border-right: 1px solid $color-borders-gray-300;
+			border-left: 1px solid $color-borders-gray-300;
+
+			.bar {
+				display: flex;
+				align-items: center;
+				background: $color-background-gray-300;
+				@extend %text-style-ui-4;
+			}
+
+			span {
+				height: 100%;
+				background: $color-text-gray-500;
+				display: inline-block;
+				margin-right: rem(5);
+			}
+
+			&:before,
+			&:after {
+				display: block;
+				position: absolute;
+				top: 100%;
+				width: 20px;
+				color: $color-text-gray-200;
+				text-align: center;
+				@extend %text-style-ui-5;
+			}
+
+			&:before {
+				content: "0";
+				left: -10px;
+			}
+
+			&:after {
+				content: attr(data-total-entries);
+				right: -10px;
+			}
+		}
+	}
+}
+
+.wrapper {
+	// background-color: $color-background-gray-100;
+	background: linear-gradient(0deg, #f8f8f8 30px, rgba(248, 248, 248, 0) 300px),
+		linear-gradient(
+			201.75deg,
+			rgba(253, 254, 255, 0.5) 2.76%,
+			rgba(224, 239, 248, 0.5) 29.06%,
+			rgba(248, 248, 248, 0.5) 71.58%
+		),
+		linear-gradient(157.14deg, #e0eff8 25.66%, rgba(224, 239, 248, 0.14) 62.15%),
+		#f8f8f8;
+}

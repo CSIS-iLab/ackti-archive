@@ -1,0 +1,21 @@
+@use '../abstracts/' as *;
+
+.logo {
+  background-image: url(/assets/static/CSIS-logo-long.svg);
+  width: 195px;
+  height: 24px;
+  // color gray-300
+  filter: invert(29%) sepia(14%) saturate(711%) hue-rotate(181deg) brightness(94%) contrast(89%);
+
+  &__site-header{
+    background-image: url(/assets/static/CSIS-logo.svg);
+    width: 88px;
+    height: 24px;
+  
+    @include breakpoint('medium') {
+      background-image: url(/assets/static/CSIS-logo-long.svg);
+      width: 226px;
+      height: 24px;
+    }
+  }
+}
