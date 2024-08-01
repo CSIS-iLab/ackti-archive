@@ -13,7 +13,7 @@
     "date",
     "event",
     "associated agreement",
-    "speaker",
+    "names",
     "type of resource",
   ]
 
@@ -202,9 +202,9 @@
             <td class="table__body__cell table__body__cell--data"
               >{rows.associated_agreement}</td
             >
-            <!-- event speaker -->
+            <!-- event names -->
             <td class="table__body__cell table__body__cell--data"
-              >{rows.speaker}</td
+              >{rows.names}</td
             >
             <!-- event type -->
             <td class="table__body__cell table__body__cell--data"
@@ -218,17 +218,17 @@
                 <div class="description">
                   <div>{rows.timelineEvent.summary}</div>
                   <div class="link">
-                    Source(s):
-                    {#each rows.timelineEvent.sources as source, index}
-                      {#if source[0] != ""}
+                    PDF(s):
+                    {#each rows.timelineEvent.pdfs as pdf, index}
+                      {#if pdf[0] != ""}
                         <a
-                          href={source[0]}
+                          href={pdf[0]}
                           target="_blank"
                           rel="noopener noreferrer"
-                          >{source[1]}{#if index == 0 && rows.timelineEvent.sources[1][0] != ""}
+                          >{pdf[1]}{#if index == 0 && rows.timelineEvent.pdfs[1][0] != ""}
                             ,
                           {/if}
-                          {#if index == 1 && rows.timelineEvent.sources[2][0] != ""}
+                          {#if index == 1 && rows.timelineEvent.pdfs[2][0] != ""}
                             ,
                           {/if}</a
                         >

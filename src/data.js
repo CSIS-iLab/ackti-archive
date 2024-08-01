@@ -26,7 +26,8 @@ export default function getData() {
         timelineEvent: {
           title: row.title,
           summary: row.quote,
-          sources: [
+          // these have to be updated to link_to_pdf and name_of_pdf
+          pdfs: [
             [row.source_1, row.source_name_1],
             [row.source_2, row.source_name_2],
             [row.source_3, row.source_name_3],
@@ -35,7 +36,6 @@ export default function getData() {
           image_source: row.image_source,
         },
         associated_agreement: row.category,
-        // category_name: row.category_name,
         speaker: row.speaker,
         speaker_name: "",
         type: row.type,
@@ -56,6 +56,7 @@ export default function getData() {
 
     const years = createYearList(data)
 
+    console.log(data)
     return {
       data: data,
       associated_agreements: associated_agreements,
