@@ -6,7 +6,7 @@
 
   export let dataset
   export let filteredData
-  export let selectedCategory
+  export let selectedAssociatedAgreement
   export let selectedType
   export let selectedSpeaker
   export let selectedMonth
@@ -17,8 +17,8 @@
   $: totalEntries = filteredData.length
 
   const eventTotal = dataset.data.length
-  function getPGCount(category) {
-    return dataset.data.filter((row) => row.category.includes(category)).length
+  function getPGCount(associated_agreement) {
+    return dataset.data.filter((row) => row.associated_agreement.includes(associated_agreement)).length
   }
 
   const optionIdentifier = "value"
@@ -92,8 +92,8 @@
       case "Speaker":
         setSelectedSpeaker(event.detail.value)
         break
-      case "Category":
-        setSelectedCategory(event)
+      case "Associated Agreement":
+        setSelectedAssociatedAgreement(event)
         break
       case "Type":
         selectedType = event.detail.value
@@ -123,10 +123,10 @@
     selectedSpeaker = dataset.speaker[index]
   }
 
-  function setSelectedCategory(event) {
+  function setSelectedAssociatedAgreement(event) {
     const value = event.target ? event.target.value : event.detail.value
     updateActiveTab(value)
-    selectedCategory = value
+    selectedAssociatedAgreement = value
   }
 
   function handleClear(selectName) {
@@ -136,8 +136,8 @@
       removeExtraContentStyle()
       switchRowBottomLine()
     }
-    if (selectName === "Category") {
-      selectedCategory = ""
+    if (selectName === "Associated Agreement") {
+      selectedAssociatedAgreement = ""
       updateActiveTab("")
     } else if (selectName === "Speaker") {
       selectedSpeaker = ""
@@ -157,7 +157,7 @@
     '<svg class="iconDown" width="16" height="10" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="m0 0 14 15L28 0H0z" fill="#000"/></svg>'
   let chevron = chevronDown
   let isListOpen = false
-  let listCategoryOpen = false
+  let listAssociatedAgreementOpen = false
 
   $: chevron = isListOpen ? chevronUp : chevronDown
 
@@ -232,23 +232,23 @@
     <button
       class="options__btn options__btn--tab options__btn--tab--all options__btn--tab--active options__btn--tab--all--active"
       data-tab={"all"}
-      on:click={(event) => handleSelect(event, "Category")}
+      on:click={(event) => handleSelect(event, "Associated Agreement")}
       >All <span
         data-count={"all"}
         class="options__count options__count--active">{eventTotal}</span
       >
     </button>
-    {#each dataset.categories as category}
+    {#each dataset.associated_agreements as associated_agreement}
       <button
-        class="options__btn options__btn--tab options__btn--tab--{category} "
-        data-tab={category}
-        value={category}
-        on:click={(event) => handleSelect(event, "Category")}
-        >{category}
+        class="options__btn options__btn--tab options__btn--tab--{associated_agreement} "
+        data-tab={associated_agreement}
+        value={associated_agreement}
+        on:click={(event) => handleSelect(event, "Associated Agreement")}
+        >{associated_agreement}
         <span
-          data-count={category}
-          class="options__count options__count--{category}"
-          >{getPGCount(category)}</span
+          data-count={associated_agreement}
+          class="options__count options__count--{associated_agreement}"
+          >{getPGCount(associated_agreement)}</span
         >
       </button>
     {/each}

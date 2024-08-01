@@ -7,7 +7,7 @@
   import Footer from "./Footer.svelte"
 
   export let dataset
-  let selectedCategory = ""
+  let selectedAssociatedAgreement = ""
   let selectedType = ""
   let selectedSpeaker = ""
   let selectedMonth = ""
@@ -28,8 +28,8 @@
           ? row.speaker.trim().toLowerCase() ===
             selectedSpeaker.trim().toLowerCase()
           : true
-        const isSelectedCategory = selectedCategory
-          ? row.category === selectedCategory
+        const isSelectedAssociatedAgreement = selectedAssociatedAgreement
+          ? row.associated_agreement === selectedAssociatedAgreement
           : true
         const isSelectedType = selectedType ? row.type === selectedType : true
 
@@ -41,7 +41,7 @@
 
         const matchesAnyCondition = [
           matchesText(row.timelineEvent.title),
-          matchesText(row.category),
+          matchesText(row.associated_agreement),
           matchesText(row.type),
           matchesText(row.speaker),
         ].some(Boolean)
@@ -51,7 +51,7 @@
           matchesMonth &&
           matchesSpeaker &&
           matchesAnyCondition &&
-          isSelectedCategory &&
+          isSelectedAssociatedAgreement &&
           isSelectedType
         )
       })
@@ -71,7 +71,7 @@
       bind:row
       bind:selectedSpeaker
       bind:selectedType
-      bind:selectedCategory
+      bind:selectedAssociatedAgreement
       bind:searchText
       bind:selectedMonth
       bind:selectedYear

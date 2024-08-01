@@ -12,7 +12,7 @@
   const sortByColumns = [
     "date",
     "event",
-    "category",
+    "associated agreement",
     "speaker",
     "type of resource",
   ]
@@ -44,7 +44,7 @@
   const headerNames = [
     "Event",
     "Date (EST)",
-    "Category",
+    "Associated Agreement",
     "Speaker",
     "Type of Resource",
   ]
@@ -198,9 +198,9 @@
             <td class="table__body__cell table__body__cell--data"
               >{rows.date_string}</td
             >
-            <!-- event category -->
+            <!-- event associated agreement -->
             <td class="table__body__cell table__body__cell--data"
-              >{rows.category}</td
+              >{rows.associated_agreement}</td
             >
             <!-- event speaker -->
             <td class="table__body__cell table__body__cell--data"

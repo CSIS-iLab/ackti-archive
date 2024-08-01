@@ -34,8 +34,8 @@ export default function getData() {
           image_url: row.image_url,
           image_source: row.image_source,
         },
-        category: row.category,
-        category_name: row.category_name,
+        associated_agreement: row.category,
+        // category_name: row.category_name,
         speaker: row.speaker,
         speaker_name: "",
         type: row.type,
@@ -50,7 +50,7 @@ export default function getData() {
 
     const type = formatType(data)
 
-    const categories = formatCategories(data)
+    const associated_agreements = formatAssociatedAgreements(data)
 
     const dates = createAndAssignDateObjects(data)
 
@@ -58,7 +58,7 @@ export default function getData() {
 
     return {
       data: data,
-      categories: categories,
+      associated_agreements: associated_agreements,
       dates: dates,
       speaker: speaker,
       //speaker without title - for dropdown
@@ -130,6 +130,6 @@ function formatType(array) {
   return [...new Set(array.map((el) => el.type))]
 }
 
-function formatCategories(array) {
-  return [...new Set(array.map((el) => el.category))]
+function formatAssociatedAgreements(array) {
+  return [...new Set(array.map((el) => el.associated_agreement))]
 }
