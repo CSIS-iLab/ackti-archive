@@ -186,9 +186,7 @@
         {#each filteredData as rows}
           <tr
             on:click={(e) => handleClick(e)}
-            class="title table__body__cell--border {rows.key_moment !== null
-              ? 'key-moment'
-              : ''}"
+            class="title table__body__cell--border"
           >
             <!-- event name/title -->
             <td class="table__body__cell table__body__cell--data"
