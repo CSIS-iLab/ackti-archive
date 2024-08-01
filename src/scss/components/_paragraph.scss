@@ -1,8 +1,8 @@
-@use '../abstracts'as *;
+@use "../abstracts" as *;
 
 .p1 {
   @extend %text-style-paragraph-1;
-  
+
   &--italic {
     @extend %text-style-paragraph-1-italic;
   }
@@ -12,25 +12,24 @@
   @extend %text-style-paragraph-2;
 }
 
-
 .ui {
-  &--1{
+  &--1 {
     @extend %text-style-ui-1;
-    
-    &--bold{
+
+    &--bold {
       @extend %text-style-ui-1-bold;
     }
   }
 
-  &--2{
+  &--2 {
     @extend %text-style-ui-2;
-    
-    &--bold{
+
+    &--bold {
       @extend %text-style-ui-2-bold;
     }
   }
 
-  &--3{
+  &--3 {
     @extend %text-style-ui-3;
 
     &--italic {
@@ -38,7 +37,7 @@
     }
   }
 
-  &--4{
+  &--4 {
     @extend %text-style-ui-4;
 
     &--underline {
@@ -46,9 +45,9 @@
     }
   }
 
-  &--5{
+  &--5 {
     @extend %text-style-ui-5;
-    
+
     &--caps {
       @extend %text-style-ui-5-caps;
     }

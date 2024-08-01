@@ -1,4 +1,4 @@
-@use '../abstracts/' as *;
+@use "../abstracts/" as *;
 
 .checkbox {
   &__container {
@@ -14,11 +14,11 @@
 
     &:focus {
       background-color: $color-background-gray-100;
-      background-color: #1475DC;
+      background-color: #1475dc;
       transition: background-color 0.2s ease-in-out;
     }
   }
-  
+
   &__label {
     display: flex;
 
@@ -28,8 +28,7 @@
   }
 }
 
-
-input[type=checkbox] {
+input[type="checkbox"] {
   position: absolute;
   opacity: 0;
 
@@ -38,12 +37,12 @@ input[type=checkbox] {
     line-height: 1;
     color: $color-text-gray-400;
     position: relative;
-    padding-top: .5rem;
+    padding-top: 0.5rem;
     padding-left: rem(33);
     cursor: pointer;
 
     &::before {
-      content: '';
+      content: "";
       border-width: 1px;
       border-style: solid;
       border-color: $color-borders-gray-300;
@@ -52,25 +51,27 @@ input[type=checkbox] {
       position: absolute;
       width: rem(20);
       height: rem(20);
-      transition: background 0.3s ease-in-out, border 0.3s ease-in-out;
+      transition:
+        background 0.3s ease-in-out,
+        border 0.3s ease-in-out;
       top: rem(8);
       left: 0;
     }
 
     &::after {
-      content: '';
+      content: "";
       display: block;
       position: absolute;
       top: 5px;
       left: 5px;
-      width: .4rem;
-      height: .75rem;
+      width: 0.4rem;
+      height: 0.75rem;
     }
-  }  
+  }
 
   &:hover {
     + label::before {
-    border-color: $color-brand-blue-700;
+      border-color: $color-brand-blue-700;
     }
   }
 
@@ -89,7 +90,7 @@ input[type=checkbox] {
     }
 
     + label::after {
-      content: 'L';
+      content: "L";
       font-family: arial;
       color: $color-background-white;
       -ms-transform: scaleX(-1) rotate(-35deg); /* IE 9 */
@@ -97,7 +98,7 @@ input[type=checkbox] {
       transform: scaleX(-1) rotate(-35deg);
       line-height: rem(16);
       padding-top: rem(3);
-      padding-right: .8rem;
+      padding-right: 0.8rem;
       text-align: center;
     }
   }

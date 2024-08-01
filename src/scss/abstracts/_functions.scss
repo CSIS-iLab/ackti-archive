@@ -1,5 +1,5 @@
-@use 'variables' as *;
-@use 'sass:math';
+@use "variables" as *;
+@use "sass:math";
 
 /*=================================
 =            Functions            =
@@ -17,11 +17,11 @@ $browser-context: 16px;
 }
 
 @function is-number($value) {
-  @return type-of($value) == 'number';
+  @return type-of($value) == "number";
 }
 
 @function is-px($value) {
-  @return is-number($value) and index('px', unit($value)) != null;
+  @return is-number($value) and index("px", unit($value)) != null;
 }
 
 // Calculates the slope based off the min/max font size and min/max widths.

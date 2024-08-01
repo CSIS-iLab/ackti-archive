@@ -1,7 +1,7 @@
 @use "../abstracts/" as *;
 
 .table-container {
-  background-color: $color-background-gray-100;
+  background-color: $color-off-white;
 
   &__header {
     max-width: $size__page-max-width;
@@ -10,6 +10,7 @@
   }
 
   &__subtitle {
+    padding-top: 20px;
     @extend %text-style-heading-2;
   }
 }

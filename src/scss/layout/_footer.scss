@@ -1,37 +1,36 @@
-@use '../abstracts/' as *;
+@use "../abstracts/" as *;
 
 .footer {
   @extend %text-style-paragraph-2;
-  color: $color-text-gray-400;
+  color: $color-light-yellow;
   padding-top: rem(48);
   padding-bottom: rem(32);
   padding-right: var(--container-padding);
   padding-left: var(--container-padding);
-  // font-weight: 300;
-  background-color: $color-background-gray-100;
-  border-top: 1px solid $color-text-gray-100;
+  background-color: $color-main-red;
+  border-top: 1px solid $color-light-red;
 
   display: grid;
   grid-template-columns: repeat(1, 1fr);
-  grid-template-areas: 'logo'
-    'desc'
-    'social'
-    'address'
-    'copyright';
+  grid-template-areas:
+    "logo"
+    "desc"
+    "social"
+    "address"
+    "copyright";
 
-  @include breakpoint('medium') {
-    grid-template-areas: 'logo logo'
-    'desc social'
-    'desc address'
-    'copyright copyright';
+  @include breakpoint("medium") {
+    grid-template-areas:
+      "logo logo"
+      "desc social"
+      "desc address"
+      "copyright copyright";
     grid-template-columns: 2fr 1fr;
     padding-top: rem(56);
-    // padding-bottom: rem(32);
-    // grid-template-columns: 3fr 4fr 3fr;
   }
 
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     left: calc((100vw - 100%) / -2);
     z-index: -1;
@@ -42,11 +41,11 @@
   }
 
   a {
-    color: $color-text-gray-300;
+    color: $color-light-yellow;
     transition: color 0.3s ease-in-out;
 
     &:hover {
-      color: $color-brand-blue-600;
+      color: $color-dark-yellow;
       text-decoration: none;
     }
   }
@@ -60,11 +59,11 @@
     margin-bottom: rem(24);
 
     a {
-      color: $color-text-gray-300;
+      color: $color-light-yellow;
       transition: color 0.3s ease-in-out;
-    
+
       &:hover {
-        color: $color-text-gray-500;
+        color: $color-dark-yellow;
         text-decoration: none;
       }
 
@@ -78,9 +77,8 @@
     grid-area: desc;
     max-width: $size__content-max-width;
     margin-bottom: rem(40);
-    // margin-top: rem(24);
 
-    @include breakpoint('medium') {
+    @include breakpoint("medium") {
       margin-bottom: 0;
       margin-right: rem(64);
     }
@@ -88,11 +86,11 @@
 
   &__address {
     grid-area: address;
-    color: $color-text-gray-300;
+    color: $color-light-yellow;
     margin-top: rem(11);
     font-style: normal;
 
-    @include breakpoint('medium') {
+    @include breakpoint("medium") {
       display: flex;
       justify-content: flex-end;
       text-align: right;
@@ -103,19 +101,19 @@
     grid-area: social;
     margin-left: -10px;
     margin-bottom: rem(8);
-   
-    @include breakpoint('medium') {
+
+    @include breakpoint("medium") {
       display: flex;
       justify-content: flex-end;
       margin-bottom: 0;
     }
 
     a {
-      color: $color-text-gray-300;
+      color: $color-light-yellow;
       transition: color 0.3s ease-in-out;
-    
+
       &:hover {
-        color: $color-brand-blue-600;
+        color: $color-dark-yellow;
         text-decoration: none;
       }
     }
@@ -123,18 +121,18 @@
 
   &__copyright {
     grid-area: copyright;
-    color: $color-text-gray-200;
+    color: $color-light-yellow;
     @extend %text-style-ui-4;
     margin-top: rem(32);
 
-    @include breakpoint('medium') {
+    @include breakpoint("medium") {
       margin-top: rem(24);
     }
   }
 
   &__privacy-pol {
     @extend %text-style-ui-4-underline;
-    color: $color-text-gray-300;
+    color: $color-light-yellow;
 
     &:focus {
       text-decoration: none;

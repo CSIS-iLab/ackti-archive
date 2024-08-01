@@ -1,13 +1,13 @@
 <script>
-  export let id
+  export let id;
   export let text = "";
-  export let ariaLabel
-  export let classes
+  export let ariaLabel;
+  export let classes;
 </script>
 
-<button id={id} class={classes} aria-label={ariaLabel} on:click>
+<button {id} class={classes} aria-label={ariaLabel} on:click>
   {#if text}
-  {text}
+    {text}
   {/if}
 </button>
 

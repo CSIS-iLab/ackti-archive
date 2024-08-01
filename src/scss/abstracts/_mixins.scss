@@ -1,7 +1,7 @@
-@use 'variables' as *;
-@use 'functions' as *;
-@use 'sass:map';
-@use 'sass:list';
+@use "variables" as *;
+@use "functions" as *;
+@use "sass:map";
+@use "sass:list";
 
 /*=================================
 =            Mixins            =
@@ -16,7 +16,7 @@
 // @include breakpoint($break: 'medium', $dir: 'max-width');
 @mixin breakpoint(
   $break,
-  $dir: 'min-width',
+  $dir: "min-width",
   $until: null,
   $breakpoints-map: $breakpoints
 ) {
@@ -82,7 +82,7 @@
 // Extend Background to full width of window
 @mixin full-width-background(
   $background,
-  $direction: '',
+  $direction: "",
   $includeMargins: true
 ) {
   $width_forumula: calc((100vw - 100%) / 2);
@@ -95,7 +95,7 @@
 
   &::before,
   &::after {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     display: block;

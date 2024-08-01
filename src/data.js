@@ -1,81 +1,140 @@
-import { csv } from "d3-fetch"
+import * as d3Fetch from "d3-fetch"
 
 const URL =
-  "https://docs.google.com/spreadsheets/d/e/2PACX-1vSZbsWyNWxgbsJJd2AuaoNIJ2KkEplWSNK77gxcS_WndRrj1rNnPoxtPNl60HjlmdvQo4UvxBUMEi1S/pub?output=csv"
+  "https://docs.google.com/spreadsheets/d/e/2PACX-1vS-_ERImv22VF5VJU8oWN2g9_uQ4LzJr21zOHHtizHHYTuQJvHZHJGaJE6d1DUDifpiPGqmZL4MIbgU/pub?gid=2021316330&single=true&output=csv"
 
-const policyGoals = [
-  "Emissions_Reduction",
-  "Economic_Development",
-  "Resilience",
-]
-const tags = [
-  "Anticipating_Climate_Impacts",
-  "Comprehensive_Planning_Grid_Modernization",
-  "Data_Transparency_or_Visualization",
-  "Electric_Vehicles",
-  "Energy_Storage",
-  "Environmental_Justice",
-  "Innovation_and_Clusters",
-  "Local-Level_Planning_or_Support",
-  "Microgrids",
-  "Distributed_Energy_Resources_(DERs)",
-  "Technology_or_System_Standards",
-  "Workforce_Development",
+const months = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
 ]
 
 export default function getData() {
-  const dataPromise = csv(URL).then(processData)
+  const dataPromise = d3Fetch.csv(URL).then((res) => {
+    const data = res.map((row, index) => {
+      return {
+        id: index,
+        timelineEvent: {
+          title: row.title,
+          quote: row.quote,
+          sources: [
+            [row.source_1, row.source_name_1, row.vpn_required_1],
+            [row.source_2, row.source_name_2, row.vpn_required_2],
+            [row.source_3, row.source_name_3, row.vpn_required_3],
+          ],
+          translation_source_used: row.translation_source_used,
+          translation_source_link: row.translation_source_link,
+          translation_source_name: row.translation_source_name,
+          image_url: row.image_url,
+          image_source: row.image_source,
+          key_moment: row.key_moment,
+        },
+        key_moment: row.key_moment ? row.key_moment : null,
+        category: row.category,
+        category_name: row.category_name,
+        speaker: row.speaker,
+        speaker_name: "",
+        type: row.type,
+        date_string: row.date,
+        date: "",
+      }
+    })
+
+    const speaker = formatSpeaker(data)
+
+    const speaker_name = createAndAssignSpeakerNames(data)
+
+    const type = formatType(data)
+
+    const categories = formatCategories(data)
+
+    const dates = createAndAssignDateObjects(data)
+
+    const years = createYearList(data)
+
+    return {
+      data: data,
+      categories: categories,
+      dates: dates,
+      speaker: speaker,
+      //speaker without title - for dropdown
+      speaker_name: speaker_name,
+      type: type,
+      months: months,
+      years: years,
+    }
+  })
   return dataPromise
 }
 
-function processData(res) {
-  const data = res.map((row, index) => transformRow(row, index))
+function createYearList(data) {
+  // Create a Set to store unique years
+  const uniqueYearsSet = new Set()
 
-  return {
-    data,
-    states: formatStates(data),
-    tags: formatTags(tags),
-    authority: formatUniqueValues(data, "authority"),
-    resourceTypes: formatUniqueValues(data, "type_of_resource"),
-    policyGoals,
-  }
-}
-
-function transformRow(row, index) {
-  return {
-    id: index,
-    policy_goals: filterByKeys(row, policyGoals),
-    tags: formatTags(filterByKeys(row, tags)),
-    activity: {
-      title: row.title,
-      description: row.description,
-      link: row.URL,
-    },
-    state: row.state,
-    state_name: row.state_name,
-    authority: row.authority,
-    type_of_resource: row.type_of_resource,
-  }
-}
-
-function filterByKeys(row, keys) {
-  return keys.filter((key) => row[key])
-}
-
-function formatTags(tagArray) {
-  return tagArray.map((tag) => tag.split("_").join(" "))
-}
-
-function formatUniqueValues(data, key) {
-  return [...new Set(data.map((item) => item[key]))]
-}
-
-function formatStates(data) {
-  const statesMap = new Map()
-  data.forEach((item) => {
-    if (!statesMap.has(item.state)) {
-      statesMap.set(item.state, { name: item.state_name, value: item.state })
-    }
+  // Loop through each row in the dataset
+  data.forEach((row) => {
+    // Extract the year from the date_string and add it to the Set
+    const year = new Date(row.date_string).getFullYear()
+    uniqueYearsSet.add(year)
   })
-  return Array.from(statesMap.values())
+
+  // Convert the Set of unique years to an array and sort it
+  return Array.from(uniqueYearsSet).sort((a, b) => a - b) // Numeric sort
+}
+
+function createAndAssignSpeakerNames(array) {
+  let speaker_Name_Array = []
+
+  for (let i = 0; i < array.length; i++) {
+    let name = array[i].speaker.split(",")[0]
+    if (array[i].speaker != "") {
+      array[i].speaker_name = name
+
+      if (!speaker_Name_Array.includes(name)) {
+        speaker_Name_Array.push(name)
+      }
+    }
+  }
+
+  return speaker_Name_Array.sort((a, b) => a.localeCompare(b))
+}
+
+function createAndAssignDateObjects(array) {
+  let dates = []
+  let date_string = []
+
+  for (let i = 0; i < array.length; i++) {
+    let date = array[i].date_string
+
+    let dateObject = new Date(date)
+    array[i].date = dateObject
+
+    if (!date_string.includes(array[i].date_string)) {
+      date_string.push(array[i].date_string)
+      dates.push(dateObject)
+    }
+  }
+
+  return dates
+}
+
+function formatSpeaker(array) {
+  return [...new Set(array.map((el) => el.speaker))]
+}
+
+function formatType(array) {
+  return [...new Set(array.map((el) => el.type))]
+}
+
+function formatCategories(array) {
+  return [...new Set(array.map((el) => el.category))]
 }

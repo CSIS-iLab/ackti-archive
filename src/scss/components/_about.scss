@@ -1,15 +1,15 @@
-@use '../abstracts/' as *;
+@use "../abstracts/" as *;
 
 .about {
-  color: $color-text-gray-500;
-  background-color: $color-background-gray-100;
+  color: $color-off-white;
+  background-color: $color-main-red;
   padding-top: rem(80);
   padding-bottom: rem(120);
   padding-left: var(--container-padding);
   padding-right: var(--container-padding);
 
   &__container {
-    @include breakpoint('medium') {
+    @include breakpoint("medium") {
       margin: 0 auto;
       max-width: $size__content-max-width;
     }
@@ -52,7 +52,7 @@
 
     &__link {
       @extend %text-style-ui-2;
-      color: $color-brand-blue-600;
+      color: $color-light-yellow;
       text-decoration: none;
 
       &--back-top {
@@ -63,66 +63,40 @@
       }
 
       .icon-container {
-      // color brand-blue-600
         margin-left: rem(4);
-        filter: invert(39%) sepia(72%) saturate(6596%) hue-rotate(200deg) brightness(100%) contrast(84%);
+        fill: $color-light-yellow;
       }
 
       &:hover {
-        color: $color-brand-blue-700;
+        color: $color-dark-yellow;
+        transition: $transition__link;
 
         .icon-container {
-          // color: $color-brand-blue-700;
-          filter: invert(22%) sepia(54%) saturate(2858%) hue-rotate(194deg) brightness(92%) contrast(101%);
+          fill: $color-dark-yellow;
+          transition: $transition__link;
         }
       }
-      
+
       &:focus {
-        color: $color-brand-blue-700;
-        background-color: $color-background-light-blue-100;
+        color: $color-main-red;
+        background-color: $color-off-white;
         outline: 0;
 
         .icon-container {
-          // color: $color-brand-blue-700;
-          filter: invert(22%) sepia(54%) saturate(2858%) hue-rotate(194deg) brightness(92%) contrast(101%);
+          fill: $color-main-red;
         }
       }
 
       &:visited {
-        color: $color-brand-blue-870;
+        color: $color-dark-yellow;
 
         .icon-container {
-            // color: $color-brand-blue-800;
-            opacity: 0.7;
-            filter: invert(9%) sepia(41%) saturate(6837%) hue-rotate(211deg) brightness(98%) contrast(99%);
-          }
+          fill: $color-dark-yellow;
+        }
       }
     }
   }
 
-  &__initiative {
-    @extend %text-style-paragraph-2;
-
-    &__link {
-      color: $color-brand-blue-600;
-      text-decoration: none;
-
-      &:hover {
-        color: $color-brand-blue-700;
-      }
-
-      &:focus {
-        color: $color-brand-blue-700;
-        background-color: $color-background-light-blue-100;
-        outline: 0;
-      }
-
-      &:visited {
-        color: $color-brand-blue-870;
-      }
-    }
-  }
-  
   &__development {
     margin-top: rem(42);
     margin-bottom: rem(8);
@@ -141,21 +115,18 @@
     }
 
     &__link {
-      color: $color-brand-blue-600;
+      color: $color-light-yellow;
       text-decoration: none;
 
       &:hover {
-        color: $color-brand-blue-700;
+        color: $color-dark-yellow;
+        transition: $transition__link;
       }
 
       &:focus {
-        color: $color-brand-blue-700;
-        background-color: $color-background-light-blue-100;
+        color: $color-main-red;
+        background-color: $color-off-white;
         outline: 0;
-      }
-
-      &:visited {
-        color: $color-brand-blue-870;
       }
     }
   }
@@ -174,38 +145,41 @@
 
     &__link {
       @extend %text-style-ui-3;
-      color: $color-brand-blue-600;
+      color: $color-light-yellow;
 
       .back-top__icon-container {
-        // color brand-blue-600
-        filter: invert(39%) sepia(72%) saturate(6596%) hue-rotate(200deg) brightness(100%) contrast(84%);
+        fill: $color-light-yellow;
         transition: $transition__link;
       }
 
       &:hover {
-        color: $color-brand-blue-700;
-  
+        color: $color-dark-yellow;
+        transition: $transition__link;
+
         .back-top__icon-container {
-          // color: $color-brand-blue-700;
-          filter: invert(22%) sepia(54%) saturate(2858%) hue-rotate(194deg) brightness(92%) contrast(101%);
+          fill: $color-dark-yellow;
           transition: $transition__link;
         }
       }
 
       &:focus {
-        color: $color-brand-blue-700;
-        background-color: $color-background-light-blue-100;
+        color: $color-main-red;
+        background-color: $color-off-white;
         outline: 0;
 
         .back-top__icon-container {
-          // color: $color-brand-blue-700;
-          filter: invert(22%) sepia(54%) saturate(2858%) hue-rotate(194deg) brightness(92%) contrast(101%);
+          filter: invert(22%) sepia(54%) saturate(2858%) hue-rotate(194deg)
+            brightness(92%) contrast(101%);
           transition: $transition__link;
         }
       }
 
       &:visited {
-        color: $color-brand-blue-870;
+        color: $color-dark-yellow;
+
+        .back-top__icon-container {
+          fill: $color-dark-yellow;
+        }
       }
     }
 

@@ -1,4 +1,4 @@
-@use '../abstracts/' as *;
+@use "../abstracts/" as *;
 
 /* 
  * Utility class to hide content visually while keeping it screen reader-accessible.
@@ -16,7 +16,7 @@
 }
 
 .mobile-only {
-  @include breakpoint('medium') {
+  @include breakpoint("medium") {
     display: none;
   }
 }
@@ -24,7 +24,7 @@
 .desktop-only {
   display: none;
 
-  @include breakpoint('medium') {
+  @include breakpoint("medium") {
     display: initial;
   }
 }
