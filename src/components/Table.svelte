@@ -218,7 +218,7 @@
             <td class="table__body__cell" colspan="6">
               <div class="extra-content__container">
                 <div class="description">
-                  <div>{rows.timelineEvent.quote}</div>
+                  <div>{rows.timelineEvent.summary}</div>
                   <div class="link">
                     Source(s):
                     {#each rows.timelineEvent.sources as source, index}

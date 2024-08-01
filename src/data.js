@@ -25,7 +25,7 @@ export default function getData() {
         id: index,
         timelineEvent: {
           title: row.title,
-          quote: row.quote,
+          summary: row.quote,
           sources: [
             [row.source_1, row.source_name_1, row.vpn_required_1],
             [row.source_2, row.source_name_2, row.vpn_required_2],
