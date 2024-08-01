@@ -218,19 +218,15 @@
                 <div class="description">
                   <div>{rows.timelineEvent.summary}</div>
                   <div class="link">
-                    PDF(s):
+                    PDF:
                     {#each rows.timelineEvent.pdfs as pdf, index}
                       {#if pdf[0] != ""}
                         <a
                           href={pdf[0]}
                           target="_blank"
                           rel="noopener noreferrer"
-                          >{pdf[1]}{#if index == 0 && rows.timelineEvent.pdfs[1][0] != ""}
-                            ,
-                          {/if}
-                          {#if index == 1 && rows.timelineEvent.pdfs[2][0] != ""}
-                            ,
-                          {/if}</a
+                          >{pdf[1]}
+                          </a
                         >
                       {/if}
                     {/each}

@@ -1,7 +1,7 @@
 import * as d3Fetch from "d3-fetch"
 
 const URL =
-  "https://docs.google.com/spreadsheets/d/e/2PACX-1vS-_ERImv22VF5VJU8oWN2g9_uQ4LzJr21zOHHtizHHYTuQJvHZHJGaJE6d1DUDifpiPGqmZL4MIbgU/pub?gid=2021316330&single=true&output=csv"
+  "https://docs.google.com/spreadsheets/d/e/2PACX-1vQIAqckiVoiz2Iy7O42GPjl9pIoyhuwEc1OD0n4tJGpVJbE0piEesDLmdXJxhFNgm3zHZn-PYDUzmAC/pub?gid=0&single=true&output=csv"
 
 const months = [
   "January",
@@ -25,20 +25,18 @@ export default function getData() {
         id: index,
         timelineEvent: {
           title: row.title,
-          summary: row.quote,
+          summary: row.summary,
           // these have to be updated to link_to_pdf and name_of_pdf
           pdfs: [
-            [row.source_1, row.source_name_1],
-            [row.source_2, row.source_name_2],
-            [row.source_3, row.source_name_3],
+            [row.link_to_pdf, row.name_of_pdf],
           ],
           image_url: row.image_url,
           image_source: row.image_source,
         },
-        associated_agreement: row.category,
+        associated_agreement: row.associated_agreement,
         speaker: row.speaker,
         speaker_name: "",
-        type: row.type,
+        type: row.type_of_resource,
         date_string: row.date,
         date: "",
       }
