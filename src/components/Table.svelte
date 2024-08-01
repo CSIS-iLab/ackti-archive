@@ -234,17 +234,6 @@
                             ,
                           {/if}</a
                         >
-                        {#if source[2] == 1}
-                          <span
-                            class="icon-tag-container"
-                            use:tooltip={{ theme: "poni" }}
-                            aria-hidden="true"
-                            aria-label="A vpn is required to view this source."
-                          >
-                            <!-- Insert your VPN Icon here -->
-                            <Icon name="Icon-info-alt" class="icon" />
-                          </span>
-                        {/if}
                       {/if}
                     {/each}
                     {#if rows.timelineEvent.translation_source_link != ""}

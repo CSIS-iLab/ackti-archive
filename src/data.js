@@ -27,9 +27,9 @@ export default function getData() {
           title: row.title,
           summary: row.quote,
           sources: [
-            [row.source_1, row.source_name_1, row.vpn_required_1],
-            [row.source_2, row.source_name_2, row.vpn_required_2],
-            [row.source_3, row.source_name_3, row.vpn_required_3],
+            [row.source_1, row.source_name_1],
+            [row.source_2, row.source_name_2],
+            [row.source_3, row.source_name_3],
           ],
           translation_source_used: row.translation_source_used,
           translation_source_link: row.translation_source_link,
