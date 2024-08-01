@@ -13,7 +13,7 @@
     "date",
     "event",
     "associated agreement",
-    "speaker",
+    "names",
     "type of resource",
   ]
 
@@ -45,7 +45,7 @@
     "Event",
     "Date (EST)",
     "Associated Agreement",
-    "Speaker",
+    "Names",
     "Type of Resource",
   ]
 
@@ -202,9 +202,9 @@
             <td class="table__body__cell table__body__cell--data"
               >{rows.associated_agreement}</td
             >
-            <!-- event speaker -->
+            <!-- event names -->
             <td class="table__body__cell table__body__cell--data"
-              >{rows.speaker}</td
+              >{rows.names}</td
             >
             <!-- event type -->
             <td class="table__body__cell table__body__cell--data"

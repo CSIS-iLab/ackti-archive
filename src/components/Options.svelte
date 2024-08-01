@@ -117,10 +117,10 @@
   }
 
   function setSelectedSpeaker(value) {
-    const index = dataset.speaker.findIndex((element) =>
-      element.includes(value),
+    const index = dataset.data.findIndex((element) =>
+      element.names.split(";").some(name => name.trim().split(",")[0] === value)
     )
-    selectedSpeaker = dataset.speaker[index]
+    selectedSpeaker = index !== -1 ? dataset.data[index].names : ""
   }
 
   function setSelectedAssociatedAgreement(event) {
@@ -260,14 +260,14 @@
 <div class="selects">
   <!--Speaker-->
   <div class="select-container">
-    <div class="label">Speaker</div>
+    <div class="label">Name</div>
     <Select
       indicatorSvg={chevron}
       showChevron={true}
       {optionIdentifier}
       {labelIdentifier}
-      items={dataset.speaker_name}
-      placeholder="Select a speaker"
+      items={dataset.name_list}
+      placeholder="Select a name"
       on:select={(event) => handleSelect(event, "Speaker")}
       on:clear={() => handleClear("Speaker")}
     />

@@ -34,17 +34,16 @@ export default function getData() {
           image_source: row.image_source,
         },
         associated_agreement: row.associated_agreement,
-        speaker: row.speaker,
-        speaker_name: "",
+        speaker: row.names,
+        names: row.names,
+        name_list: "",
         type: row.type_of_resource,
         date_string: row.date,
         date: "",
       }
     })
 
-    const speaker = formatSpeaker(data)
-
-    const speaker_name = createAndAssignSpeakerNames(data)
+    const name_list = createAndAssignNames(data)
 
     const type = formatType(data)
 
@@ -54,14 +53,11 @@ export default function getData() {
 
     const years = createYearList(data)
 
-    console.log(data)
     return {
       data: data,
       associated_agreements: associated_agreements,
       dates: dates,
-      speaker: speaker,
-      //speaker without title - for dropdown
-      speaker_name: speaker_name,
+      name_list: name_list,
       type: type,
       months: months,
       years: years,
@@ -85,21 +81,23 @@ function createYearList(data) {
   return Array.from(uniqueYearsSet).sort((a, b) => a - b) // Numeric sort
 }
 
-function createAndAssignSpeakerNames(array) {
-  let speaker_Name_Array = []
+function createAndAssignNames(array) {
+  // console.log(array)
+  let nameArray = [];
 
   for (let i = 0; i < array.length; i++) {
-    let name = array[i].speaker.split(",")[0]
-    if (array[i].speaker != "") {
-      array[i].speaker_name = name
-
-      if (!speaker_Name_Array.includes(name)) {
-        speaker_Name_Array.push(name)
+    if (array[i].names != "") {
+      let people = array[i].names.split(";")
+      for (let j = 0; j < people.length; j++) {
+        let name = people[j].split(",")[0].trim(); // Get the name part and trim any leading/trailing spaces
+        if (!nameArray.includes(name)) {
+          nameArray.push(name);
+        }
       }
     }
   }
 
-  return speaker_Name_Array.sort((a, b) => a.localeCompare(b))
+  return nameArray.sort((a, b) => a.localeCompare(b));
 }
 
 function createAndAssignDateObjects(array) {
@@ -119,10 +117,6 @@ function createAndAssignDateObjects(array) {
   }
 
   return dates
-}
-
-function formatSpeaker(array) {
-  return [...new Set(array.map((el) => el.speaker))]
 }
 
 function formatType(array) {
