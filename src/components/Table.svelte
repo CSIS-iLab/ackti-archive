@@ -234,28 +234,7 @@
                         >
                       {/if}
                     {/each}
-                    {#if rows.timelineEvent.translation_source_link != ""}
-                      <br />
-                      Translation Source:
-                      <a
-                        href={rows.timelineEvent.translation_source_link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        >{rows.timelineEvent.translation_source_name}</a
-                      >
-                    {/if}
                   </div>
-                  <!-- <div class="link">
-                    {#if rows.timelineEvent.translation_source_link != ""}
-                      Translation Source:
-                      <a
-                        href={rows.timelineEvent.translation_source_link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        >{rows.timelineEvent.translation_source_name}</a
-                      >
-                    {/if}
-                  </div> -->
                 </div>
                 {#if rows.timelineEvent.image_url && rows.timelineEvent.image_source}
                   <div class="img-container">
