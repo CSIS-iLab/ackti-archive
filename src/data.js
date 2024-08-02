@@ -20,6 +20,7 @@ export default function getData() {
         associated_agreement: row.associated_agreement,
         names: parseNames(row.names),
         type: row.type_of_resource,
+        life_cycle_phase: row.life_cycle_phase,
         date_string: row.date,
         date: "",
       }
