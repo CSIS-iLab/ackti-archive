@@ -11,7 +11,7 @@
 
   const sortByColumns = [
     "date",
-    "event",
+    "title",
     "associated agreement",
     "names",
     "type of resource",
@@ -42,17 +42,17 @@
   }
 
   const headerNames = [
-    "Event",
+    "Title", // Changed from "Event" to "Title"
     "Date (EST)",
     "Associated Agreement",
     "Names",
     "Type of Resource",
   ]
 
-  $: sortBy = { col: "event", ascending: true }
+  $: sortBy = { col: "title", ascending: true } // Changed "event" to "title"
 
   $: sort = (e, column) => {
-    column = column.toLowerCase().replace(/\s/g, "_") // replace spaces using regex with undesrscore
+    column = column.toLowerCase().replace(/\s/g, "_") // replace spaces using regex with underscore
     const iconsActive = document.querySelectorAll(".sort-icon--active")
     iconsActive.forEach((icon) => {
       icon.classList.remove("sort-icon--active")
@@ -75,25 +75,25 @@
       a.timelineEvent.title < b.timelineEvent.title
         ? -1 * sortModifier
         : a.timelineEvent.title > b.timelineEvent.title
-        ? 1 * sortModifier
-        : 0
+          ? 1 * sortModifier
+          : 0
 
     let sortDate = (a, b) =>
       a.date < b.date
         ? -1 * sortModifier
         : a.date > b.date
-        ? 1 * sortModifier
-        : 0
+          ? 1 * sortModifier
+          : 0
 
     let sortColumnName = (a, b) =>
       a[column] < b[column]
         ? -1 * sortModifier
         : a[column] > b[column]
-        ? 1 * sortModifier
-        : 0
+          ? 1 * sortModifier
+          : 0
 
-    //Sort by timeline event title
-    if (column == "event") {
+    // Sort by timeline event title
+    if (column == "title") {
       console.log(
         "filteredData",
         (filteredData = filteredData.sort(sortTimelineEvent)),
@@ -110,7 +110,7 @@
       icon.classList.remove("sort-icon--active")
     })
     const divTimelineEvent = document.querySelector(
-      ".table__cell--header__container__event",
+      ".table__cell--header__container__title",
     )
     divTimelineEvent.children[1].children[1].classList.add("sort-icon--active")
     // Sync horizontal scroll of table header and table body
@@ -206,7 +206,13 @@
             <!-- Update the names column to join names and titles -->
             <td class="table__body__cell table__body__cell--data">
               {#each rows.names as person, index}
-                <p>{person.name}{person.title ? `, ${person.title}` : ''}{index < rows.names.length - 1 ? '; ' : ''}</p><br>
+                <p>
+                  {person.name}{person.title ? `, ${person.title}` : ""}{index <
+                  rows.names.length - 1
+                    ? "; "
+                    : ""}
+                </p>
+                <br />
               {/each}
             </td>
             <!-- event type -->
@@ -229,8 +235,7 @@
                           target="_blank"
                           rel="noopener noreferrer"
                           >{pdf[1]}
-                          </a
-                        >
+                        </a>
                       {/if}
                     {/each}
                   </div>
