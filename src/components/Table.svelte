@@ -13,7 +13,7 @@
     "date",
     "title",
     "associated agreement",
-    "names",
+    "name(s)",
     "type of resource",
   ]
 
@@ -45,14 +45,14 @@
     "Title", // Changed from "Event" to "Title"
     "Date (EST)",
     "Associated Agreement",
-    "Names",
+    "Name(s)", // Changed from "Names" to "Name(s)"
     "Type of Resource",
   ]
 
   $: sortBy = { col: "title", ascending: true } // Changed "event" to "title"
 
   $: sort = (e, column) => {
-    column = column.toLowerCase().replace(/\s/g, "_") // replace spaces using regex with underscore
+    column = column.toLowerCase().replace(/\s/g, "_").replace("(s)", "s") // Ensure "Name(s)" is converted to "names"
     const iconsActive = document.querySelectorAll(".sort-icon--active")
     iconsActive.forEach((icon) => {
       icon.classList.remove("sort-icon--active")
