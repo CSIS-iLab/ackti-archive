@@ -69,8 +69,7 @@
     // Modifier to sorting function for ascending or descending
     let sortModifier = sortBy.ascending ? 1 : -1
 
-    // current function - does NOT also sort by date,
-    // only puts event titles in alpha order
+    // Sorting functions for each column
     let sortTimelineEvent = (a, b) =>
       a.timelineEvent.title < b.timelineEvent.title
         ? -1 * sortModifier
@@ -92,16 +91,25 @@
           ? 1 * sortModifier
           : 0
 
-    // Sort by timeline event title
-    if (column == "title") {
-      console.log(
-        "filteredData",
-        (filteredData = filteredData.sort(sortTimelineEvent)),
-      )
-      return (filteredData = filteredData.sort(sortTimelineEvent))
+    let sortByName = (a, b) => {
+      const getFirstName = (row) => row.names[0].name.toLowerCase() // Extract the first name in lowercase
+      const nameA = getFirstName(a)
+      const nameB = getFirstName(b)
+      return nameA < nameB
+        ? -1 * sortModifier
+        : nameA > nameB
+          ? 1 * sortModifier
+          : 0
     }
 
-    filteredData = filteredData.sort(sortDate).sort(sortColumnName)
+    // Determine the column to sort by
+    if (column == "title") {
+      filteredData = filteredData.sort(sortTimelineEvent)
+    } else if (column == "names") {
+      filteredData = filteredData.sort(sortByName)
+    } else {
+      filteredData = filteredData.sort(sortDate).sort(sortColumnName)
+    }
   }
 
   onMount(() => {
