@@ -206,7 +206,7 @@
             <!-- Update the names column to join names and titles -->
             <td class="table__body__cell table__body__cell--data">
               {#each rows.names as person, index}
-                {person.name}{person.title ? `, ${person.title}` : ''}{index < rows.names.length - 1 ? '; ' : ''}
+                <p>{person.name}{person.title ? `, ${person.title}` : ''}{index < rows.names.length - 1 ? '; ' : ''}</p><br>
               {/each}
             </td>
             <!-- event type -->
