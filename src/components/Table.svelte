@@ -15,6 +15,7 @@
     "associated agreement",
     "name(s)",
     "type of resource",
+    "life cycle phase",
   ]
 
   function handleClick(e) {
@@ -47,6 +48,7 @@
     "Associated Agreement",
     "Name(s)", // Changed from "Names" to "Name(s)"
     "Type of Resource",
+    "Life Cycle Phase",
   ]
 
   $: sortBy = { col: "title", ascending: true } // Changed "event" to "title"
@@ -226,6 +228,10 @@
             <!-- event type -->
             <td class="table__body__cell table__body__cell--data"
               >{rows.type}</td
+            >
+            <!-- event type -->
+            <td class="table__body__cell table__body__cell--data"
+              >{rows.life_cycle_phase}</td
             >
           </tr>
           <!--this tr is the stuff under the dropdown -->
