@@ -10,8 +10,6 @@
   export let selectedAssociatedAgreement
   export let selectedType
   export let selectedSpeaker
-  export let selectedMonth
-  export let selectedYear
   export let searchText = ""
   export let row
   export let selectedStartDate
@@ -107,12 +105,6 @@
       case "End Date":
         selectedEndDate = event
         break
-      case "Month":
-        selectedMonth = event.detail.value
-        break
-      case "Year":
-        selectedYear = event.detail.value
-        break
       default:
         console.error("Invalid selectName:", selectName)
     }
@@ -163,10 +155,10 @@
       selectedSpeaker = ""
     } else if (selectName == "Type") {
       selectedType = ""
-    } else if (selectName == "Month") {
-      selectedMonth = ""
+    } else if (selectName == "Start Date") {
+      selectedStartDate = ""
     } else {
-      selectedYear = ""
+      selectedEndDate = ""
     }
   }
 
@@ -321,34 +313,6 @@
     <DatePicker
       placeholder="Select an end date"
       onDateChange={(date) => handleSelect(date, "End Date")}
-    />
-  </div>
-  <!--Month-->
-  <div class="select-container">
-    <div class="label">Month</div>
-    <Select
-      indicatorSvg={chevron}
-      showChevron={true}
-      {optionIdentifier}
-      {labelIdentifier}
-      items={dataset.months}
-      placeholder="Select a month"
-      on:select={(event) => handleSelect(event, "Month")}
-      on:clear={() => handleClear("Month")}
-    />
-  </div>
-  <!-- Year-->
-  <div class="select-container">
-    <div class="label">Year</div>
-    <Select
-      indicatorSvg={chevron}
-      showChevron={true}
-      {optionIdentifier}
-      {labelIdentifier}
-      items={dataset.years}
-      placeholder="Select a year"
-      on:select={(event) => handleSelect(event, "Year")}
-      on:clear={() => handleClear("Year")}
     />
   </div>
 </div>

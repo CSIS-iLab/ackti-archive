@@ -10,9 +10,7 @@
   let selectedAssociatedAgreement = ""
   let selectedType = ""
   let selectedSpeaker = ""
-  let selectedMonth = ""
   let searchText
-  let selectedYear = ""
   let selectedStartDate = ""
   let selectedEndDate = ""
   $: row = { isOpen: false }
@@ -21,11 +19,6 @@
     return dataset.data
       .filter((row) => {
         const rowDate = new Date(row.date_string)
-        const rowYear = rowDate.getFullYear()
-        const rowMonth = rowDate.toLocaleString("default", { month: "long" })
-
-        const matchesYear = selectedYear ? rowYear === selectedYear : true
-        const matchesMonth = selectedMonth ? rowMonth === selectedMonth : true
         const matchesSpeaker = selectedSpeaker
           ? row.names.some(person => person.name.trim().toLowerCase() === selectedSpeaker.trim().toLowerCase())
           : true
@@ -52,8 +45,6 @@
         ].some(Boolean)
 
         return (
-          matchesYear &&
-          matchesMonth &&
           matchesSpeaker &&
           matchesAnyCondition &&
           isSelectedAssociatedAgreement &&
@@ -81,8 +72,6 @@
       bind:selectedType
       bind:selectedAssociatedAgreement
       bind:searchText
-      bind:selectedMonth
-      bind:selectedYear
       bind:selectedStartDate
       bind:selectedEndDate
     />

@@ -1,27 +1,27 @@
 <script>
-  import { onMount } from "svelte";
-  import flatpickr from "flatpickr";
-  import "flatpickr/dist/flatpickr.css";
+  import { onMount } from "svelte"
+  import flatpickr from "flatpickr"
+  import "flatpickr/dist/flatpickr.css"
 
-  export let placeholder = "Select Date";
-  export let date = "";
-  export let onDateChange;
+  export let placeholder = "Select Date"
+  export let date = ""
+  export let onDateChange
 
-  let datepicker;
+  let datepicker
 
   onMount(() => {
     flatpickr(datepicker, {
       defaultDate: date,
       onChange: (selectedDates) => {
         if (onDateChange) {
-          onDateChange(selectedDates[0]);
+          onDateChange(selectedDates[0])
         }
       },
-    });
-  });
+    })
+  })
 </script>
 
-<input type="text" bind:this={datepicker} placeholder={placeholder} />
+<input type="text" bind:this={datepicker} {placeholder} />
 
 <style>
   input {
