@@ -13,13 +13,15 @@
   export let searchText = ""
   export let row
   export let selectedStartDate
-  export let selectedEndDate  
+  export let selectedEndDate
 
   $: totalEntries = filteredData.length
 
   const eventTotal = dataset.data.length
   function getPGCount(associated_agreement) {
-    return dataset.data.filter((row) => row.associated_agreement.includes(associated_agreement)).length
+    return dataset.data.filter((row) =>
+      row.associated_agreement.includes(associated_agreement),
+    ).length
   }
 
   const optionIdentifier = "value"
@@ -118,22 +120,21 @@
   }
 
   function setSelectedType(value) {
-    selectedType = value;
-    console.log('Selected type:', value);
-    console.log('Filtered data:', filteredData);
+    selectedType = value
+    console.log("Selected type:", value)
+    console.log("Filtered data:", filteredData)
   }
 
   function setSelectedSpeaker(value) {
-  const matchingEntries = dataset.data.filter((element) =>
-    element.names.some(person => person.name === value)
-  );
-  console.log('Selected value:', value);
-  console.log('Matching entries:', matchingEntries);
-  filteredData = matchingEntries;
-  selectedSpeaker = value;
-  console.log('Filtered data:', filteredData);
-}
-
+    const matchingEntries = dataset.data.filter((element) =>
+      element.names.some((person) => person.name === value),
+    )
+    console.log("Selected value:", value)
+    console.log("Matching entries:", matchingEntries)
+    filteredData = matchingEntries
+    selectedSpeaker = value
+    console.log("Filtered data:", filteredData)
+  }
 
   function setSelectedAssociatedAgreement(event) {
     const value = event.target ? event.target.value : event.detail.value
@@ -304,6 +305,7 @@
     <DatePicker
       placeholder="Select a start date"
       onDateChange={(date) => handleSelect(date, "Start Date")}
+      {dataset}
     />
   </div>
 
@@ -313,6 +315,7 @@
     <DatePicker
       placeholder="Select an end date"
       onDateChange={(date) => handleSelect(date, "End Date")}
+      {dataset}
     />
   </div>
 </div>
