@@ -117,11 +117,16 @@
   }
 
   function setSelectedSpeaker(value) {
-    const index = dataset.data.findIndex((element) =>
-      element.names.split(";").some(name => name.trim().split(",")[0] === value)
-    )
-    selectedSpeaker = index !== -1 ? dataset.data[index].names : ""
-  }
+  const matchingEntries = dataset.data.filter((element) =>
+    element.names.some(person => person.name === value)
+  );
+  console.log('Selected value:', value);
+  console.log('Matching entries:', matchingEntries);
+  filteredData = matchingEntries;
+  selectedSpeaker = value;
+  console.log('Filtered data:', filteredData);
+}
+
 
   function setSelectedAssociatedAgreement(event) {
     const value = event.target ? event.target.value : event.detail.value

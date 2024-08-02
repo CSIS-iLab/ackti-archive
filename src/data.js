@@ -26,7 +26,6 @@ export default function getData() {
         timelineEvent: {
           title: row.title,
           summary: row.summary,
-          // these have to be updated to link_to_pdf and name_of_pdf
           pdfs: [
             [row.link_to_pdf, row.name_of_pdf],
           ],
@@ -34,9 +33,7 @@ export default function getData() {
           image_source: row.image_source,
         },
         associated_agreement: row.associated_agreement,
-        speaker: row.names,
-        names: row.names,
-        name_list: "",
+        names: parseNames(row.names),
         type: row.type_of_resource,
         date_string: row.date,
         date: "",
@@ -53,6 +50,9 @@ export default function getData() {
 
     const years = createYearList(data)
 
+    console.log(data)
+    console.log(name_list)
+
     return {
       data: data,
       associated_agreements: associated_agreements,
@@ -61,9 +61,16 @@ export default function getData() {
       type: type,
       months: months,
       years: years,
-    }
-  })
-  return dataPromise
+    };
+  });
+  return dataPromise;
+}
+
+function parseNames(namesString) {
+  return namesString.split(";").map(person => {
+    const [name, title] = person.split(",").map(s => s.trim());
+    return { name, title: title || "" };
+  });
 }
 
 function createYearList(data) {
@@ -82,23 +89,19 @@ function createYearList(data) {
 }
 
 function createAndAssignNames(array) {
-  // console.log(array)
   let nameArray = [];
-
   for (let i = 0; i < array.length; i++) {
-    if (array[i].names != "") {
-      let people = array[i].names.split(";")
-      for (let j = 0; j < people.length; j++) {
-        let name = people[j].split(",")[0].trim(); // Get the name part and trim any leading/trailing spaces
-        if (!nameArray.includes(name)) {
-          nameArray.push(name);
+    if (array[i].names.length > 0) {
+      array[i].names.forEach(person => {
+        if (person.name && !nameArray.includes(person.name)) {
+          nameArray.push(person.name);
         }
-      }
+      });
     }
   }
-
   return nameArray.sort((a, b) => a.localeCompare(b));
 }
+
 
 function createAndAssignDateObjects(array) {
   let dates = []

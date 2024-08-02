@@ -25,8 +25,7 @@
         const matchesYear = selectedYear ? rowYear === selectedYear : true
         const matchesMonth = selectedMonth ? rowMonth === selectedMonth : true
         const matchesSpeaker = selectedSpeaker
-          ? row.speaker.trim().toLowerCase() ===
-            selectedSpeaker.trim().toLowerCase()
+          ? row.names.some(person => person.name.trim().toLowerCase() === selectedSpeaker.trim().toLowerCase())
           : true
         const isSelectedAssociatedAgreement = selectedAssociatedAgreement
           ? row.associated_agreement === selectedAssociatedAgreement
@@ -36,14 +35,13 @@
         const filteredTimelineEvent = searchText
           ? searchText.toLowerCase().trim()
           : ""
-        const matchesText = (text) =>
-          text.toLowerCase().includes(filteredTimelineEvent)
+        const matchesText = (text) => text && text.toLowerCase().includes(filteredTimelineEvent)
 
         const matchesAnyCondition = [
           matchesText(row.timelineEvent.title),
           matchesText(row.associated_agreement),
           matchesText(row.type),
-          matchesText(row.speaker),
+          row.names.some(person => matchesText(person.name))
         ].some(Boolean)
 
         return (

@@ -202,10 +202,12 @@
             <td class="table__body__cell table__body__cell--data"
               >{rows.associated_agreement}</td
             >
-            <!-- event names -->
-            <td class="table__body__cell table__body__cell--data"
-              >{rows.names}</td
-            >
+            <!-- Update the names column to join names and titles -->
+            <td class="table__body__cell table__body__cell--data">
+              {#each rows.names as person, index}
+                {person.name}{person.title ? `, ${person.title}` : ''}{index < rows.names.length - 1 ? '; ' : ''}
+              {/each}
+            </td>
             <!-- event type -->
             <td class="table__body__cell table__body__cell--data"
               >{rows.type}</td
