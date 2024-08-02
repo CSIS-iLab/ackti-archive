@@ -50,8 +50,7 @@ export default function getData() {
 
     const years = createYearList(data)
 
-    console.log(data)
-    console.log(name_list)
+    console.log("Types", type)
 
     return {
       data: data,
@@ -123,8 +122,21 @@ function createAndAssignDateObjects(array) {
 }
 
 function formatType(array) {
-  return [...new Set(array.map((el) => el.type))]
+  let typesArray = []
+  array.forEach(row => {
+    if (row.type) {
+      const types = row.type.split(",").map(type => type.trim())
+      types.forEach(type => {
+        if (type && !typesArray.includes(type)) {
+          typesArray.push(type)
+        }
+      })
+    }
+  })
+  console.log(typesArray)
+  return typesArray.sort((a, b) => a.localeCompare(b))
 }
+
 
 function formatAssociatedAgreements(array) {
   return [...new Set(array.map((el) => el.associated_agreement))]

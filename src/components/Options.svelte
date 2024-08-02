@@ -96,7 +96,7 @@
         setSelectedAssociatedAgreement(event)
         break
       case "Type":
-        selectedType = event.detail.value
+        setSelectedType(event.detail.value)
         break
       case "Month":
         selectedMonth = event.detail.value
@@ -114,6 +114,12 @@
     removeRowActiveTitleStyle()
     removeExtraContentStyle()
     switchRowBottomLine()
+  }
+
+  function setSelectedType(value) {
+    selectedType = value;
+    console.log('Selected type:', value);
+    console.log('Filtered data:', filteredData);
   }
 
   function setSelectedSpeaker(value) {

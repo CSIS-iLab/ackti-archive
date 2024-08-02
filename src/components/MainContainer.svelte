@@ -30,7 +30,9 @@
         const isSelectedAssociatedAgreement = selectedAssociatedAgreement
           ? row.associated_agreement === selectedAssociatedAgreement
           : true
-        const isSelectedType = selectedType ? row.type === selectedType : true
+        const isSelectedType = selectedType
+          ? row.type && row.type.split(',').map(type => type.trim().toLowerCase()).includes(selectedType.toLowerCase())
+          : true
 
         const filteredTimelineEvent = searchText
           ? searchText.toLowerCase().trim()

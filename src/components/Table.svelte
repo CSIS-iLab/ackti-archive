@@ -132,6 +132,7 @@
     }
     scrollSync()
   })
+  console.log(filteredData)
 </script>
 
 <div class="table__wrapper">
