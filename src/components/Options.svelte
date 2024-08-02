@@ -306,6 +306,7 @@
       placeholder="Select a start date"
       onDateChange={(date) => handleSelect(date, "Start Date")}
       {dataset}
+      defaultDateType = "oldest"
     />
   </div>
 
