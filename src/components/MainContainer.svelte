@@ -13,6 +13,7 @@
   let searchText
   let selectedStartDate = ""
   let selectedEndDate = ""
+  let selectedLifeCyclePhase = ""
   $: row = { isOpen: false }
 
   $: filteredData = () => {
@@ -20,28 +21,44 @@
       .filter((row) => {
         const rowDate = new Date(row.date_string)
         const matchesSpeaker = selectedSpeaker
-          ? row.names.some(person => person.name.trim().toLowerCase() === selectedSpeaker.trim().toLowerCase())
+          ? row.names.some(
+              (person) =>
+                person.name.trim().toLowerCase() ===
+                selectedSpeaker.trim().toLowerCase(),
+            )
           : true
         const isSelectedAssociatedAgreement = selectedAssociatedAgreement
           ? row.associated_agreement === selectedAssociatedAgreement
           : true
         const isSelectedType = selectedType
-          ? row.type && row.type.split(',').map(type => type.trim().toLowerCase()).includes(selectedType.toLowerCase())
+          ? row.type &&
+            row.type
+              .split(",")
+              .map((type) => type.trim().toLowerCase())
+              .includes(selectedType.toLowerCase())
           : true
 
-        const matchesStartDate = selectedStartDate ? rowDate >= new Date(selectedStartDate) : true;
-        const matchesEndDate = selectedEndDate ? rowDate <= new Date(selectedEndDate) : true;
+        const matchesStartDate = selectedStartDate
+          ? rowDate >= new Date(selectedStartDate)
+          : true
+        const matchesEndDate = selectedEndDate
+          ? rowDate <= new Date(selectedEndDate)
+          : true
+        const matchesLifeCyclePhase = selectedLifeCyclePhase
+          ? row.life_cycle_phase === selectedLifeCyclePhase
+          : true
 
         const filteredTimelineEvent = searchText
           ? searchText.toLowerCase().trim()
           : ""
-        const matchesText = (text) => text && text.toLowerCase().includes(filteredTimelineEvent)
+        const matchesText = (text) =>
+          text && text.toLowerCase().includes(filteredTimelineEvent)
 
         const matchesAnyCondition = [
           matchesText(row.timelineEvent.title),
           matchesText(row.associated_agreement),
           matchesText(row.type),
-          row.names.some(person => matchesText(person.name))
+          row.names.some((person) => matchesText(person.name)),
         ].some(Boolean)
 
         return (
@@ -50,12 +67,12 @@
           isSelectedAssociatedAgreement &&
           isSelectedType &&
           matchesStartDate &&
-          matchesEndDate
-        );
+          matchesEndDate &&
+          matchesLifeCyclePhase
+        )
       })
-      .sort((a, b) => (a.date < b.date ? -1 : a.date > b.date ? 1 : 0));
+      .sort((a, b) => (a.date < b.date ? -1 : a.date > b.date ? 1 : 0))
   }
-
 </script>
 
 <div id="site-content">
@@ -74,8 +91,8 @@
       bind:searchText
       bind:selectedStartDate
       bind:selectedEndDate
+      bind:selectedLifeCyclePhase
     />
-  
 
     <Table filteredData={filteredData()} bind:row />
   </section>

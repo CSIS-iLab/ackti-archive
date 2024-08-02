@@ -36,7 +36,7 @@ export default function getData() {
 
     const years = createYearList(data)
 
-    console.log("Types", type)
+    const life_cycle_phase = [...new Set(data.map((el) => el.life_cycle_phase))].filter(Boolean);
 
     return {
       data: data,
@@ -45,6 +45,7 @@ export default function getData() {
       name_list: name_list,
       type: type,
       years: years,
+      life_cycle_phase: life_cycle_phase
     };
   });
   return dataPromise;
@@ -118,7 +119,7 @@ function formatType(array) {
       })
     }
   })
-  console.log(typesArray)
+  // console.log(typesArray)
   return typesArray.sort((a, b) => a.localeCompare(b))
 }
 

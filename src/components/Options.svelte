@@ -14,6 +14,7 @@
   export let row
   export let selectedStartDate
   export let selectedEndDate
+  export let selectedLifeCyclePhase
 
   $: totalEntries = filteredData.length
 
@@ -90,7 +91,7 @@
     if (row.isOpen) {
       toggleRowState()
     }
-    console.log(event)
+
     switch (selectName) {
       case "Speaker":
         setSelectedSpeaker(event.detail.value)
@@ -107,6 +108,9 @@
       case "End Date":
         selectedEndDate = event
         break
+      case "Life Cycle Phase":
+        setSelectedLifeCyclePhase(event.detail.value)
+        break
       default:
         console.error("Invalid selectName:", selectName)
     }
@@ -121,19 +125,14 @@
 
   function setSelectedType(value) {
     selectedType = value
-    console.log("Selected type:", value)
-    console.log("Filtered data:", filteredData)
   }
 
   function setSelectedSpeaker(value) {
     const matchingEntries = dataset.data.filter((element) =>
       element.names.some((person) => person.name === value),
     )
-    console.log("Selected value:", value)
-    console.log("Matching entries:", matchingEntries)
     filteredData = matchingEntries
     selectedSpeaker = value
-    console.log("Filtered data:", filteredData)
   }
 
   function setSelectedAssociatedAgreement(event) {
@@ -141,6 +140,12 @@
     updateActiveTab(value)
     selectedAssociatedAgreement = value
   }
+
+  function setSelectedLifeCyclePhase(value) {
+  selectedLifeCyclePhase = value;
+  console.log("Selected Life Cycle Phase:", value);
+}
+
 
   function handleClear(selectName) {
     if (row.isOpen) {
@@ -158,6 +163,8 @@
       selectedType = ""
     } else if (selectName == "Start Date") {
       selectedStartDate = ""
+    } else if (selectName == "Life Cycle Phase") {
+      selectedLifeCyclePhase = ""
     } else {
       selectedEndDate = ""
     }
@@ -306,10 +313,9 @@
       placeholder="Select a start date"
       onDateChange={(date) => handleSelect(date, "Start Date")}
       {dataset}
-      defaultDateType = "oldest"
+      defaultDateType="oldest"
     />
   </div>
-
   <!-- EndDate-->
   <div class="select-container">
     <div class="label">End Date</div>
@@ -317,6 +323,20 @@
       placeholder="Select an end date"
       onDateChange={(date) => handleSelect(date, "End Date")}
       {dataset}
+    />
+  </div>
+  <!-- Life Cycle Phase-->
+  <div class="select-container">
+    <div class="label">Life Cycle Phase</div>
+    <Select
+      indicatorSvg={chevron}
+      showChevron={true}
+      {optionIdentifier}
+      {labelIdentifier}
+      items={dataset.life_cycle_phase}
+      placeholder="Select a life cycle phase"
+      on:select={(event) => handleSelect(event, "Life Cycle Phase")}
+      on:clear={(event) => handleClear("Life Cycle Phase")}
     />
   </div>
 </div>
