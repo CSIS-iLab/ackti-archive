@@ -13,6 +13,8 @@
   let selectedMonth = ""
   let searchText
   let selectedYear = ""
+  let selectedStartDate = ""
+  let selectedEndDate = ""
   $: row = { isOpen: false }
 
   $: filteredData = () => {
@@ -34,6 +36,9 @@
           ? row.type && row.type.split(',').map(type => type.trim().toLowerCase()).includes(selectedType.toLowerCase())
           : true
 
+        const matchesStartDate = selectedStartDate ? rowDate >= new Date(selectedStartDate) : true;
+        const matchesEndDate = selectedEndDate ? rowDate <= new Date(selectedEndDate) : true;
+
         const filteredTimelineEvent = searchText
           ? searchText.toLowerCase().trim()
           : ""
@@ -52,11 +57,14 @@
           matchesSpeaker &&
           matchesAnyCondition &&
           isSelectedAssociatedAgreement &&
-          isSelectedType
-        )
+          isSelectedType &&
+          matchesStartDate &&
+          matchesEndDate
+        );
       })
-      .sort((a, b) => (a.date < b.date ? -1 : a.date > b.date ? 1 : 0))
+      .sort((a, b) => (a.date < b.date ? -1 : a.date > b.date ? 1 : 0));
   }
+
 </script>
 
 <div id="site-content">
@@ -75,7 +83,10 @@
       bind:searchText
       bind:selectedMonth
       bind:selectedYear
+      bind:selectedStartDate
+      bind:selectedEndDate
     />
+  
 
     <Table filteredData={filteredData()} bind:row />
   </section>

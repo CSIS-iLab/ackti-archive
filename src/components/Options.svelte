@@ -3,6 +3,7 @@
   import Search from "./Search.svelte"
   import Select from "svelte-select"
   import Icon from "./Icons.svelte"
+  import DatePicker from "./DatePicker.svelte"
 
   export let dataset
   export let filteredData
@@ -13,6 +14,8 @@
   export let selectedYear
   export let searchText = ""
   export let row
+  export let selectedStartDate
+  export let selectedEndDate  
 
   $: totalEntries = filteredData.length
 
@@ -87,7 +90,7 @@
     if (row.isOpen) {
       toggleRowState()
     }
-
+    console.log(event)
     switch (selectName) {
       case "Speaker":
         setSelectedSpeaker(event.detail.value)
@@ -97,6 +100,12 @@
         break
       case "Type":
         setSelectedType(event.detail.value)
+        break
+      case "Start Date":
+        selectedStartDate = event
+        break
+      case "End Date":
+        selectedEndDate = event
         break
       case "Month":
         selectedMonth = event.detail.value
@@ -295,6 +304,23 @@
       placeholder="Select a type"
       on:select={(event) => handleSelect(event, "Type")}
       on:clear={(event) => handleClear("Type")}
+    />
+  </div>
+  <!-- StartDate-->
+  <div class="select-container">
+    <div class="label">Start Date</div>
+    <DatePicker
+      placeholder="Select a start date"
+      onDateChange={(date) => handleSelect(date, "Start Date")}
+    />
+  </div>
+
+  <!-- EndDate-->
+  <div class="select-container">
+    <div class="label">End Date</div>
+    <DatePicker
+      placeholder="Select an end date"
+      onDateChange={(date) => handleSelect(date, "End Date")}
     />
   </div>
   <!--Month-->
