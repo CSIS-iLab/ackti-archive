@@ -4,7 +4,6 @@
   import "flatpickr/dist/flatpickr.css"
 
   export let placeholder = "Select Date"
-  export let date = ""
   export let onDateChange
   export let dataset = []
   export let defaultDateType = ""
@@ -47,10 +46,52 @@
 <input type="text" bind:this={datepicker} {placeholder} />
 
 <style>
-  input {
+   /* Input styling */
+   input {
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 4px;
     width: 100%;
+  }
+
+  :global(.flatpickr-calendar) {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  :global(.flatpickr-day) {
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+    line-height: 2rem;
+    font-family: jost, sans-serif; 
+  }
+
+  :global(.flatpickr-day:hover) {
+    background-color: #e6e6e6;
+  }
+
+  :global(.flatpickr-day.today) {
+    background-color: #007bff;
+    color: white;
+  }
+
+  :global(.flatpickr-day.selected) {
+    background-color: red !important;
+    color: white;
+  }
+
+  :global(.flatpickr-months) {
+    background-color: #f8f9fa;
+  }
+
+  :global(.flatpickr-month) {
+    background-color: blue !important;
+  }
+
+  :global(.flatpickr-prev-month), :global(.flatpickr-next-month) {
+    color: #007bff;
   }
 </style>
