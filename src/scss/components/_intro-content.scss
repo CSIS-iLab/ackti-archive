@@ -40,18 +40,18 @@ main {
   &__overline {
     &--small {
       @extend %text-style-ui-5-caps;
-      color: $color-off-white;
+      color: $color-main-gray;
       margin-bottom: rem(4);
     }
 
     &--regular {
       @extend %text-style-ui-4-caps;
-      color: $color-off-white;
+      color: $color-main-gray;
 
       &::after {
         content: "";
         display: block;
-        border-bottom: 2px solid $color-off-white;
+        border-bottom: 2px solid $color-main-gray;
         width: 23px;
         height: 2px;
         margin: 0 auto;
@@ -65,7 +65,7 @@ main {
     margin-bottom: rem(48);
 
     @extend %text-style-heading-1;
-    color: $color-off-white;
+    color: $color-main-gray;
     text-align: center;
   }
 
@@ -73,7 +73,7 @@ main {
     margin-bottom: rem(16);
     max-width: $size__content-max-width;
     @extend %text-style-paragraph-1;
-    color: $color-off-white;
+    color: $color-main-gray;
   }
 
   &__more {

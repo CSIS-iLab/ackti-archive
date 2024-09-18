@@ -4,11 +4,11 @@
 
 /*Color palette: https://coolors.co/b68600-ffc72c-ebdbc1-eaeaea-901a1a-350000-590000*/
 $color-dark-yellow: rgba(182, 134, 0, 1); //#B68600
-$color-light-yellow: rgba(255, 199, 44, 1); //#FFC72C
-$color-off-white: rgba(235, 219, 193, 1); //#EBDBC1
+// $color-light-yellow: rgba(255, 199, 44, 1); //#FFC72C
+$color-light-yellow: rgba(255,202,86,1);  //#FFCA56
+// $color-off-white: rgba(235, 219, 193, 1); //#EBDBC1
 $color-light-red: rgba(144, 26, 26, 1); //#901A1A
 $color-main-red: rgba(89, 0, 0, 1); //#590000
-$color-dark-red: rgba(53, 0, 0, 1); //#350000
 $color-platinum: rgba(234, 234, 234, 1); //#EAEAEA
 $color-placeholder: rgba(74, 70, 67, 1); //#4A4643
 $color-antique-white: rgba(243, 233, 216, 1); //#F3E9D8
@@ -19,10 +19,34 @@ $color-charcoal: rgba(63, 79, 95, 1); //#3F4F5F  -- consider gray-300
 $color-khaki: rgba(187, 167, 130, 1); //#BBA782
 $color-burlywood: rgba(222, 184, 135, 1); //#DEB887
 
+/*ACKTI STYLE GUIDE COLORS*/
+$color-main-gray: rgba(236,236,236,1); //#ECECEC
+// $color-dark-red: rgba(53, 0, 0, 1); //#350000
+$color-dark-red: rgba(167,33,21); // #A72115
+$color-medium-red: rgba(198,55,42,1); //#C6372A
+$color-light-red: rgba(229, 77, 63, 1); //#E54D3F
+
+// $color-text-main: rgba(51, 51, 51, 1);
+$color-text-main: rgba(69,69,69,1); //#454545
+
+$color-darkest-blue: rgba(50,81,109, 1);  //#32516d
+$color-dark-blue: rgba(61,99,133,1); //#3D6385
+$color-medium-blue: rgba(78, 148, 186, 1); //#4E94BA
+$color-light-blue: rgba(105,201,239,1); //#69C9EF
+$color-lightest-blue: rgba(216,241,251, 1); //#D8F1FB
+
+
+// existing colors
+$color-focus-outline: rgba(151, 200, 247, 0.68);
+$color-brand-blue-600: rgba(20, 117, 220, 1);
+$color-brand-blue-700: rgba(0, 84, 164, 1);
+$color-brand-blue-800: rgba(1, 43, 105, 1);
+
+
 /*----------  Colors we're using from template ----------*/
 
 $color-text-white: rgba(250, 250, 250, 1);
-$color-text-main: rgba(51, 51, 51, 1);
+
 
 $color-text-gray-100: rgba(188, 194, 206, 1);
 $color-text-gray-200: rgba(126, 134, 148, 1);
@@ -42,17 +66,15 @@ $color-background-gray-300: rgba(228, 228, 228, 1);
 
 $color-background-light-blue-100: rgba(239, 245, 248, 1);
 
-$color-focus-outline: rgba(151, 200, 247, 0.68);
-$color-brand-blue-600: rgba(20, 117, 220, 1);
-$color-brand-blue-700: rgba(0, 84, 164, 1);
-$color-brand-blue-800: rgba(1, 43, 105, 1);
+
 
 /*----------  Fonts  ----------*/
-$font__jost: jost, sans-serif;
+$font__rokkitt: 'Rokkitt', serif;
+$font__special-elite: 'Special Elite', cursive;
 $font__righteous: righteous, cursive;
 
-$font-family-default: $font__jost;
-$font-family-heading: $font__righteous;
+$font-family-default: $font__rokkitt;
+$font-family-heading: $font__special-elite;
 $font-size-default: 16px;
 $font-weight-default: 400;
 $font-weight-bold: 800;

@@ -1,8 +1,8 @@
 @use "../abstracts/" as *;
 
 .about {
-  color: $color-off-white;
-  background-color: $color-main-red;
+  color: $color-main-gray;
+  background-color: $color-darkest-blue;
   padding-top: rem(80);
   padding-bottom: rem(120);
   padding-left: var(--container-padding);
@@ -31,7 +31,7 @@
 
   &__reports {
     &__title {
-      @extend %text-style-ui-5-bold-caps;
+      @extend %text-style-ui-2-caps;
       margin-top: rem(42);
       margin-bottom: rem(8);
     }
@@ -51,7 +51,7 @@
     }
 
     &__link {
-      @extend %text-style-ui-2;
+      @extend %text-style-ui-1;
       color: $color-light-yellow;
       text-decoration: none;
 
@@ -78,12 +78,12 @@
       }
 
       &:focus {
-        color: $color-main-red;
-        background-color: $color-off-white;
+        color: $color-dark-red;
+        background-color: $color-main-gray;
         outline: 0;
 
         .icon-container {
-          fill: $color-main-red;
+          fill: $color-dark-red;  
         }
       }
 
@@ -124,8 +124,8 @@
       }
 
       &:focus {
-        color: $color-main-red;
-        background-color: $color-off-white;
+        color: $color-dark-red;
+        background-color: $color-main-gray;
         outline: 0;
       }
     }
@@ -144,7 +144,7 @@
     }
 
     &__link {
-      @extend %text-style-ui-3;
+      @extend %text-style-ui-1;
       color: $color-light-yellow;
 
       .back-top__icon-container {
@@ -164,7 +164,7 @@
 
       &:focus {
         color: $color-main-red;
-        background-color: $color-off-white;
+        background-color: $color-main-gray;
         outline: 0;
 
         .back-top__icon-container {

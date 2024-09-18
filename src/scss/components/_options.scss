@@ -1,7 +1,7 @@
 @use "../abstracts/" as *;
 
 .options {
-  background-color: $color-off-white;
+  background-color: $color-main-gray;
 
   &__container {
     padding-left: var(--container-padding);
@@ -67,7 +67,7 @@
       padding-bottom: rem(16);
       padding-left: rem(8);
       padding-right: rem(4);
-      border-bottom: 3px solid $color-off-white;
+      border-bottom: 3px solid $color-main-gray;
       margin-right: rem(16);
       color: $color-main-red;
 
@@ -99,7 +99,7 @@
 
       .options__count {
         background-color: $color-dark-red;
-        color: $color-off-white;
+        color: $color-main-gray;
       }
     }
 

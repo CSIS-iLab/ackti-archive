@@ -44,14 +44,14 @@
   }
 
   &__wrapper {
-    background-color: $color-off-white;
+    background-color: $color-main-gray;
   }
 
   &__cell {
     &--header {
       color: $color-text-gray-500;
       padding: rem(12) rem(16);
-      background-color: $color-off-white;
+      background-color: $color-main-gray;
       @extend %text-style-ui-2-bold;
 
       border-bottom: 1px solid $color-borders-gray-400;
@@ -164,12 +164,12 @@
   border-top: 0;
 
   tr {
-    background-color: $color-off-white;
+    background-color: $color-main-gray;
     transition: $transition__link;
 
     &:hover {
       & .table__body__cell {
-        color: $color-off-white;
+        color: $color-main-gray;
       }
     }
   }
@@ -191,7 +191,7 @@
       overflow: hidden;
       padding-top: 0;
       padding-bottom: 0;
-      color: $color-off-white;
+      color: $color-main-gray;
 
       @include breakpoint("medium") {
         padding-left: rem(56);
@@ -430,11 +430,11 @@
 
   .title--active {
     background-color: $color-dark-red;
-    color: $color-off-white;
+    color: $color-main-gray;
 
     .table__body__cell {
       background-color: $color-dark-red;
-      color: $color-off-white;
+      color: $color-main-gray;
     }
   }
 }
@@ -462,5 +462,5 @@
 .tooltip {
   @extend %text-style-ui-4;
   color: $color-text-gray-500;
-  background-color: $color-background-white;
+  background-color: $color-main-gray;
 }
