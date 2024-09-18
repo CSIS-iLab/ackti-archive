@@ -81,12 +81,12 @@
     }
 
     &--tab:hover {
-      color: $color-light-red;
-      border-bottom: 3px solid $color-light-yellow;
+      color: $color-medium-blue;
+      border-bottom: 3px solid $color-light-blue;
 
       .options__count {
-        color: $color-darkest-red;
-        background-color: $color-light-yellow;
+        color: $color-darkest-blue;
+        background-color: $color-light-blue;
         transition:
           background-color 0.3s ease-in-out,
           color 0.3s ease-in-out;

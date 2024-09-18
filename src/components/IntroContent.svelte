@@ -10,7 +10,7 @@
           By the Project on Nuclear Issues
         </p>
         <h1 class="intro-content__title">
-          Nuclear Signaling during the War in Ukraine
+          The Arms Control Knowledge Transfer Initiative
         </h1>
         <p class="intro-content__introduction">
           A curated database of events illustrating the evolution of nuclear

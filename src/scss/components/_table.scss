@@ -127,14 +127,14 @@
   .sort-icon {
     font-size: rem(8);
     pointer-events: none;
-    color: #bba782;
+    color: $color-charcoal;
 
     &--active {
-      color: $color-text-gray-500;
+      color: $color-charcoal;
     }
 
     &--inactive {
-      color: #bba782;
+      color: $color-button-background;
     }
   }
 
@@ -184,7 +184,7 @@
   }
 
   .extra-content {
-    background-color: $color-darkest-red;
+    background-color: $color-darkest-blue;
 
     .table__body__cell {
       padding-left: 6vw;

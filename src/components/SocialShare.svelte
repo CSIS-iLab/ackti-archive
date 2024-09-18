@@ -44,7 +44,7 @@
   </li>
   <li class="share__item">
     <a
-      href="mailto:ekos@csis.org?subject=Nuclear Signaling during the War in Ukraine | CSIS Project on Nuclear Issues"
+      href="mailto:ekos@csis.org?subject=The Arms Control Knowledge Transfer Initiative | CSIS Project on Nuclear Issues"
       class="share__link"
       aria-label="Share via email"
     >

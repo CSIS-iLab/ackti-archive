@@ -44,9 +44,9 @@
         Strategic and International Studies.
       </p>
       <p class="about__development__description">
-        Produced by Mariel de la Garza, José Romero, and Lindsay Urchyk.
+        Produced by Mariel de la Garza.
         <br />
-        Copyediting by Katherine Stark and Rayna Salam.
+        Copyediting by Katherine Stark.
         <br />
         Cover design by Michael Kohler.
       </p>
