@@ -78,12 +78,12 @@
       }
 
       &:focus {
-        color: $color-dark-red;
+        color: $color-darkest-red;
         background-color: $color-main-gray;
         outline: 0;
 
         .icon-container {
-          fill: $color-dark-red;  
+          fill: $color-darkest-red;  
         }
       }
 
@@ -124,7 +124,7 @@
       }
 
       &:focus {
-        color: $color-dark-red;
+        color: $color-darkest-red;
         background-color: $color-main-gray;
         outline: 0;
       }
@@ -163,7 +163,7 @@
       }
 
       &:focus {
-        color: $color-main-red;
+        color: $color-darkest-red;
         background-color: $color-main-gray;
         outline: 0;
 

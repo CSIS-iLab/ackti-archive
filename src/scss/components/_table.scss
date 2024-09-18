@@ -179,12 +179,12 @@
   }
 
   .title:hover {
-    background-color: $color-dark-red;
+    background-color: $color-darkest-red;
     transition: $transition__link;
   }
 
   .extra-content {
-    background-color: $color-main-red;
+    background-color: $color-darkest-red;
 
     .table__body__cell {
       padding-left: 6vw;
@@ -429,11 +429,11 @@
   }
 
   .title--active {
-    background-color: $color-dark-red;
+    background-color: $color-darkest-red;
     color: $color-main-gray;
 
     .table__body__cell {
-      background-color: $color-dark-red;
+      background-color: $color-darkest-red;
       color: $color-main-gray;
     }
   }

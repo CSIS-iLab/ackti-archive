@@ -67,7 +67,7 @@
     width: 2rem;
     height: 2rem;
     line-height: 2rem;
-    font-family: 'Rokkitt'; 
+    font-family: 'Rokkitt', serif; 
   }
 
   :global(.flatpickr-day:hover) {

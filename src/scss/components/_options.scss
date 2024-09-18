@@ -54,7 +54,7 @@
 
   &__btn {
     display: flex;
-    color: $color-text-gray-300;
+    color: $color-main-gray;
     @extend %text-style-ui-2;
 
     &--tab {
@@ -69,11 +69,11 @@
       padding-right: rem(4);
       border-bottom: 3px solid $color-main-gray;
       margin-right: rem(16);
-      color: $color-main-red;
+      color: $color-darkest-red;
 
       .options__count {
-        color: $color-main-red;
-        background-color: $color-sunset;
+        color: $color-main-gray;
+        background-color: $color-darkest-blue;
         transition:
           background-color 0.3s ease-in-out,
           color 0.3s ease-in-out;
@@ -85,7 +85,7 @@
       border-bottom: 3px solid $color-light-yellow;
 
       .options__count {
-        color: $color-main-red;
+        color: $color-darkest-red;
         background-color: $color-light-yellow;
         transition:
           background-color 0.3s ease-in-out,
@@ -94,11 +94,11 @@
     }
 
     &--tab--active {
-      border-bottom: 3px solid $color-main-red;
+      border-bottom: 3px solid $color-darkest-red;
       transition: border-bottom 0.3s ease-in-out;
 
       .options__count {
-        background-color: $color-dark-red;
+        background-color: $color-darkest-red;
         color: $color-main-gray;
       }
     }

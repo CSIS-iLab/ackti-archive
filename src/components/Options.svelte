@@ -476,7 +476,7 @@
   }
 
   :global(.selectedItem) {
-    color: $color-main-red;
+    color: $color-darkest-red;
   }
   .select-container :global(.selectContainer:hover .indicator) {
     // $color-light-red

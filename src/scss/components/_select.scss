@@ -38,7 +38,7 @@
 .select-container {
   --border: 0;
   --background: transparent;
-  border-bottom: 1px solid $color-main-red;
+  border-bottom: 1px solid $color-darkest-red;
   --borderRadius: 0;
   @extend %text-style-ui-2;
   --indicatorWidth: rem(12);
@@ -50,16 +50,16 @@
   color: $color-text-main;
 
   &:hover {
-    border-color: $color-main-red;
+    border-color: $color-darkest-red;
   }
 
   &:focus-within {
     //underline color when dropdown is open
-    border-bottom: 1px solid $color-main-red;
+    border-bottom: 1px solid $color-darkest-red;
 
     .select__select-tag-icon {
-      fill: $color-dark-red;
-      color: $color-dark-red;
+      fill: $color-darkest-red;
+      color: $color-darkest-red;
     }
   }
 
