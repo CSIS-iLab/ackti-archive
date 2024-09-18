@@ -12,6 +12,7 @@
 
   onMount(() => {
     let dates = dataset.dates
+    console.log(dates)
     let defaultDate 
     // Find the oldest date
     const oldestDate = new Date(Math.min(...dates.map(date => new Date(date))));

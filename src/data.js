@@ -1,7 +1,7 @@
 import * as d3Fetch from "d3-fetch"
 
 const URL =
-  "https://docs.google.com/spreadsheets/d/e/2PACX-1vQ1WGRp1tMDWgFI_mN_eFCUfoe1jGq1MGrDICD-_9YCMGDqR4RgU26ITcjK1ksUjy2zeDMVyip1yCvn/pub?gid=0&single=true&output=csv"
+  "https://docs.google.com/spreadsheets/d/e/2PACX-1vT7bjPhChmC2vE0mFcMOJM_I5q0gPSnHYIpTtT-OZ7OBJrZGIWbkqc-j7UW7am5kAthcZ5ONO0HpmUM/pub?gid=0&single=true&output=csv"
 
 export default function getData() {
   const dataPromise = d3Fetch.csv(URL).then((res) => {
