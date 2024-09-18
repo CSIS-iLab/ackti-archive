@@ -2,6 +2,7 @@
   import { onMount } from "svelte"
   import flatpickr from "flatpickr"
   import "flatpickr/dist/flatpickr.css"
+  import "flatpickr/dist/themes/material_blue.css"
 
   export let placeholder = "Select Date"
   export let onDateChange
@@ -80,7 +81,7 @@
   }
 
   :global(.flatpickr-day.selected) {
-    background-color: red !important;
+    background-color: #32516d !important;
     color: white;
   }
 
@@ -88,9 +89,16 @@
     background-color: #f8f9fa;
   }
 
-  :global(.flatpickr-month) {
-    background-color: blue !important;
+  :global(.flatpickr-weekday) {
+    color: #454545 !important;
+    font-family: 'Rokkitt', serif;
   }
+
+  :global(.flatpickr-month) {
+    font-family: 'Rokkitt', serif;
+    font-size: 1.2rem;
+  }
+
 
   :global(.flatpickr-prev-month), :global(.flatpickr-next-month) {
     color: #007bff;
