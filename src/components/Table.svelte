@@ -247,17 +247,20 @@
                 <div class="description">
                   <div>{rows.timelineEvent.summary}</div>
                   <div class="link">
-                    PDF:
                     {#each rows.timelineEvent.pdfs as pdf, index}
                       {#if pdf[0] != ""}
+                      PDF:
                         <a
                           href={pdf[0]}
                           target="_blank"
                           rel="noopener noreferrer"
                           >{pdf[1]}
                         </a>
+                      <br>
+                      CITATION INFORMATION: {pdf[2]}
                       {/if}
                     {/each}
+                    <br>
                   </div>
                 </div>
                 {#if rows.timelineEvent.image_url && rows.timelineEvent.image_source}

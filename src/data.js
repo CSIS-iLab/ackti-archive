@@ -12,10 +12,8 @@ export default function getData() {
           title: row.title,
           summary: row.summary,
           pdfs: [
-            [row.link_to_pdf, row.name_of_pdf],
+            [row.link_to_pdf, row.name_of_pdf, row.citation_information],
           ],
-          image_url: row.image_url,
-          image_source: row.image_source,
         },
         associated_agreement: row.associated_agreement,
         names: parseNames(row.names),
@@ -24,7 +22,6 @@ export default function getData() {
         date_string: row.date,
         date: "",
         content_tags: row.content_tags ? row.content_tags.split(";").map(tag => tag.trim()) : [],
-
       }
     })
     console.log(data)
