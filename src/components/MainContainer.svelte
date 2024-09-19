@@ -14,11 +14,17 @@
   let selectedStartDate = ""
   let selectedEndDate = ""
   let selectedLifeCyclePhase = ""
+  let selectedTags = []
   $: row = { isOpen: false }
 
   $: filteredData = () => {
     return dataset.data
       .filter((row) => {
+        const filteredTags =
+          selectedTags.length > 0
+            ? row.content_tags.some((tag) => selectedTags.includes(tag))
+            : true
+
         const rowDate = new Date(row.date_string)
         const matchesSpeaker = selectedSpeaker
           ? row.names.some(
@@ -68,6 +74,7 @@
           isSelectedType &&
           matchesStartDate &&
           matchesEndDate &&
+          filteredTags &&
           matchesLifeCyclePhase
         )
       })

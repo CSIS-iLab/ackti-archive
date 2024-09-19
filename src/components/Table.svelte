@@ -234,9 +234,11 @@
               >{rows.life_cycle_phase}</td
             >
             <!-- event type -->
-            <td class="table__body__cell table__body__cell--data"
-              >{rows.life_cycle_phase}</td
-            >
+            <td class="table__body__cell table__body__cell--data">
+              {#each rows.content_tags as tag, index}
+                {tag}{index < rows.content_tags.length - 1 ? "," : ""}<br />
+              {/each}
+            </td>
           </tr>
           <!--this tr is the stuff under the dropdown -->
           <tr class="extra-content hide">
