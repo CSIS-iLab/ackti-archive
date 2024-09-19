@@ -183,12 +183,6 @@
           bind:group={selectedValue}
         />
         <label class="checkbox__label" for={formatOption(option, "value")}>
-          <span class="icon-container"
-            ><Icon
-              name="icon {formatOption(option, 'name')}"
-              class="icon__select"
-            /></span
-          >
           {formatOption(option, "name")}
         </label>
       </div>
