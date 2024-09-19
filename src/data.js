@@ -89,22 +89,35 @@ function createAndAssignNames(array) {
 
 
 function createAndAssignDateObjects(array) {
-  let dates = []
-  let date_string = []
+  let dates = [];
+  let date_strings = [];
 
   for (let i = 0; i < array.length; i++) {
-    let date = array[i].date_string
+    let dateString = array[i].date_string;
+    let dateObject = null;
 
-    let dateObject = new Date(date)
-    array[i].date = dateObject
-
-    if (!date_string.includes(array[i].date_string)) {
-      date_string.push(array[i].date_string)
-      dates.push(dateObject)
+    if (dateString && dateString.trim() !== '') {
+      dateObject = new Date(dateString);
+      
+      // Check if the date is valid
+      if (!isNaN(dateObject.getTime())) {
+        array[i].date = dateObject;
+        
+        if (!date_strings.includes(dateString)) {
+          date_strings.push(dateString);
+          dates.push(dateObject);
+        }
+      } else {
+        console.warn(`Invalid date string: ${dateString}`);
+        array[i].date = null;
+      }
+    } else {
+      console.warn(`Empty date string at index ${i}`);
+      array[i].date = null;
     }
   }
 
-  return dates
+  return dates.filter(date => date !== null);
 }
 
 function formatType(array) {
