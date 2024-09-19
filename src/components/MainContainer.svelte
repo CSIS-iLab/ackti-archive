@@ -99,6 +99,7 @@
       bind:selectedStartDate
       bind:selectedEndDate
       bind:selectedLifeCyclePhase
+      bind:selectedTags
     />
 
     <Table filteredData={filteredData()} bind:row />
