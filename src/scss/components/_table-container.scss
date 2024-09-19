@@ -2,6 +2,7 @@
 
 .table-container {
   background-color: $color-main-gray;
+  padding-top: 20px;
 
   &__header {
     max-width: $size__page-max-width;
@@ -12,5 +13,11 @@
   &__subtitle {
     padding-top: 20px;
     @extend %text-style-heading-2;
+  }
+
+  &__subtitle-text {
+    padding: 10px;
+    color: $color-main-gray;
+    background-color: $color-text-main;
   }
 }

@@ -4,7 +4,7 @@
 
 <section class="about" id="about">
   <div class="about__container">
-    <h2 class="about__subtitle">About</h2>
+    <h2 class="about__subtitle"><span class="about__subtitle-text">About</span></h2>
     <div class="about__description">
       <p>
         Founded in 2003, the Project on Nuclear Issues (PONI) is the premier
@@ -34,7 +34,7 @@
       </ul>
     </div>
     <div class="about__development">
-      <h3 class="about__development__title">Development Team</h3>
+      <h3 class="about__development__title"><span class="about__development__title-text">Development Team</span></h3>
       <p class="about__development__description">
         This database is a product of the <a
           class="about__development__link"

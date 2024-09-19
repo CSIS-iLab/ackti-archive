@@ -1,5 +1,13 @@
 @use "sass:color";
 
+@font-face {
+  font-family: "Impact Label";
+  src: url('../assets/static/Impact_Label.woff') format('woff'),
+       url('../assets/static/Impact_Label.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 // Variables
 
 /*Color palette: https://coolors.co/b68600-ffc72c-ebdbc1-eaeaea-901a1a-350000-590000*/
@@ -65,6 +73,7 @@ $color-background-light-blue-100: rgba(239, 245, 248, 1);
 $font__rokkitt: 'Rokkitt', serif;
 $font__special-elite: 'Special Elite', cursive;
 $font__righteous: righteous, cursive;
+$font__impact-label: 'Impact Label', sans-serif;
 
 $font-family-default: $font__rokkitt;
 $font-family-heading: $font__special-elite;

@@ -254,7 +254,7 @@
 </script>
 
 <section class="table-container__header">
-  <h2 class="table-container__subtitle">Explore Events</h2>
+  <h2 class="table-container__subtitle"><span class="table-container__subtitle-text">Explore Documents</span></h2>
 </section>
 
 <!-- tabs at the top (all, Other, Russia, NATO, US, Allies)-->
