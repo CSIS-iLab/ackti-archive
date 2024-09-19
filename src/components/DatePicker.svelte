@@ -13,8 +13,8 @@
 
   onMount(() => {
     let dates = dataset.dates
-    console.log(dates)
     let defaultDate 
+
     // Find the oldest date
     const oldestDate = new Date(Math.min(...dates.map(date => new Date(date))));
     const oldestDateFormatted = oldestDate.toISOString().split('T')[0];
@@ -23,8 +23,8 @@
     const mostRecentDate = new Date(Math.max(...dates.map(date => new Date(date))));
     const mostRecentDateFormatted = mostRecentDate.toISOString().split('T')[0];
 
-    console.log(oldestDateFormatted); // Output: 1967-02-14
-    console.log(mostRecentDateFormatted); // Output: 1991-10-16
+    // console.log(oldestDateFormatted); // Output: 1967-02-14
+    // console.log(mostRecentDateFormatted); // Output: 1991-10-16
 
     if (defaultDateType === "oldest") {
       defaultDate = oldestDateFormatted 

@@ -23,10 +23,11 @@ export default function getData() {
         life_cycle_phase: row.life_cycle_phase,
         date_string: row.date,
         date: "",
+        content_tags: row.content_tags ? row.content_tags.split(",").map(tag => tag.trim()) : [],
       }
     })
-
     console.log(data)
+
     const name_list = createAndAssignNames(data)
 
     const type = formatType(data)
@@ -39,6 +40,8 @@ export default function getData() {
 
     const life_cycle_phase = [...new Set(data.map((el) => el.life_cycle_phase))].filter(Boolean);
 
+    const content_tags = getAllContentTags(data)
+
     return {
       data: data,
       associated_agreements: associated_agreements,
@@ -46,11 +49,35 @@ export default function getData() {
       name_list: name_list,
       type: type,
       years: years,
-      life_cycle_phase: life_cycle_phase
+      life_cycle_phase: life_cycle_phase,
+      content_tags: content_tags
     };
   });
   return dataPromise;
 }
+
+function getAllContentTags(data) {
+  // Create a Set to store unique tags
+  const allTags = new Set()
+
+  // Iterate through each item in the data
+  data.forEach(item => {
+    // Ensure content_tags is an array before proceeding
+    if (Array.isArray(item.content_tags)) {
+      // Add each tag to the Set
+      item.content_tags.forEach(tag => {
+        // Only add non-empty tags
+        if (tag && typeof tag === 'string' && tag.trim() !== '') {
+          allTags.add(tag.trim())
+        }
+      })
+    }
+  })
+
+  // Convert the Set to an array and sort it alphabetically
+  return Array.from(allTags).sort((a, b) => a.localeCompare(b))
+}
+
 
 function parseNames(namesString) {
   return namesString.split(";").map(person => {
