@@ -17,7 +17,7 @@
         disarmament.
       </p>
     </div>
-    <div class="about__reports">
+    <!-- <div class="about__reports">
       <p class="about__reports__title">Associated Reports</p>
       <ul>
         <li>
@@ -32,7 +32,7 @@
           >
         </li>
       </ul>
-    </div>
+    </div> -->
     <div class="about__development">
       <h3 class="about__development__title"><span class="about__development__title-text">Development Team</span></h3>
       <p class="about__development__description">
