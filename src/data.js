@@ -26,6 +26,7 @@ export default function getData() {
       }
     })
 
+    console.log(data)
     const name_list = createAndAssignNames(data)
 
     const type = formatType(data)
@@ -53,8 +54,15 @@ export default function getData() {
 
 function parseNames(namesString) {
   return namesString.split(";").map(person => {
-    const [name, title] = person.split(",").map(s => s.trim());
-    return { name, title: title || "" };
+    person = person.trim();
+    const firstCommaIndex = person.indexOf(',');
+    if (firstCommaIndex === -1) {
+      // No comma found, assume it's just a name without a title
+      return { name: person.trim(), title: "" };
+    }
+    const name = person.slice(0, firstCommaIndex).trim();
+    const title = person.slice(firstCommaIndex + 1).trim();
+    return { name, title };
   });
 }
 
