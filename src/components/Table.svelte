@@ -49,6 +49,7 @@
     "Name(s)", // Changed from "Names" to "Name(s)"
     "Type of Resource",
     "Life Cycle Phase",
+    "Tags",
   ]
 
   $: sortBy = { col: "title", ascending: true } // Changed "event" to "title"
@@ -232,10 +233,14 @@
             <td class="table__body__cell table__body__cell--data"
               >{rows.life_cycle_phase}</td
             >
+            <!-- event type -->
+            <td class="table__body__cell table__body__cell--data"
+              >{rows.life_cycle_phase}</td
+            >
           </tr>
           <!--this tr is the stuff under the dropdown -->
           <tr class="extra-content hide">
-            <td class="table__body__cell" colspan="6">
+            <td class="table__body__cell" colspan="7">
               <div class="extra-content__container">
                 <div class="description">
                   <div>{rows.timelineEvent.summary}</div>
