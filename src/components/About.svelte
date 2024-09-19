@@ -46,7 +46,7 @@
       <p class="about__development__description">
         Produced by Mariel de la Garza.
         <br />
-        Copyediting by Katherine Stark.
+        Copyediting by ___________.
         <br />
         Cover design by Michael Kohler.
       </p>
