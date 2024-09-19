@@ -4,6 +4,7 @@
   import Select from "svelte-select"
   import Icon from "./Icons.svelte"
   import DatePicker from "./DatePicker.svelte"
+  import SelectMultiple from "./SelectMultiple.svelte"
 
   export let dataset
   export let filteredData
@@ -15,6 +16,7 @@
   export let selectedStartDate
   export let selectedEndDate
   export let selectedLifeCyclePhase
+  export let selectedTags
 
   $: totalEntries = filteredData.length
 
@@ -29,38 +31,41 @@
   const labelIdentifier = "label"
 
   function updateActiveTab(val) {
-    console.log("updateActiveTab val: ", val);
-    const value = val ? val.split(" ").join("-") : "all";
-    
-    const spanCountActive = document.querySelector(`.options__count--active`);
-    const spanCount = document.querySelector(`.options__count[data-count="${value}"]`);
-    const activeTab = document.querySelector(`.options__btn--tab--active`);
-    const tabActivate = document.querySelector(`.options__btn--tab[data-tab="${value}"]`);
+    console.log("updateActiveTab val: ", val)
+    const value = val ? val.split(" ").join("-") : "all"
+
+    const spanCountActive = document.querySelector(`.options__count--active`)
+    const spanCount = document.querySelector(
+      `.options__count[data-count="${value}"]`,
+    )
+    const activeTab = document.querySelector(`.options__btn--tab--active`)
+    const tabActivate = document.querySelector(
+      `.options__btn--tab[data-tab="${value}"]`,
+    )
 
     // Check if the elements exist before trying to access their classList
     if (spanCountActive) {
-        spanCountActive.classList.remove("options__count--active");
+      spanCountActive.classList.remove("options__count--active")
     }
     if (spanCount) {
-        spanCount.classList.add("options__count--active");
+      spanCount.classList.add("options__count--active")
     }
     if (activeTab) {
-        activeTab.classList.remove(
-            "options__btn--tab--active",
-            "options__btn--tab--Russia--active",
-            "options__btn--tab--Other--active",
-            "options__btn--tab--NATO--active",
-            "options__btn--tab--all--active"
-        );
+      activeTab.classList.remove(
+        "options__btn--tab--active",
+        "options__btn--tab--Russia--active",
+        "options__btn--tab--Other--active",
+        "options__btn--tab--NATO--active",
+        "options__btn--tab--all--active",
+      )
     }
     if (tabActivate) {
-        tabActivate.classList.add(
-            "options__btn--tab--active",
-            `options__btn--tab--${value}--active`
-        );
+      tabActivate.classList.add(
+        "options__btn--tab--active",
+        `options__btn--tab--${value}--active`,
+      )
     }
-}
-
+  }
 
   function removeRowActiveTitleStyle() {
     const title = document.querySelectorAll(".title--active")
@@ -149,10 +154,9 @@
   }
 
   function setSelectedLifeCyclePhase(value) {
-  selectedLifeCyclePhase = value;
-  console.log("Selected Life Cycle Phase:", value);
-}
-
+    selectedLifeCyclePhase = value
+    console.log("Selected Life Cycle Phase:", value)
+  }
 
   function handleClear(selectName) {
     if (row.isOpen) {
@@ -344,6 +348,15 @@
       placeholder="Select a life cycle phase"
       on:select={(event) => handleSelect(event, "Life Cycle Phase")}
       on:clear={(event) => handleClear("Life Cycle Phase")}
+    />
+  </div>
+  <!-- Tags -->
+  <div class="select-container">
+    <div class="label">Tags</div>
+    <SelectMultiple
+      bind:selectedValue={selectedTags}
+      options={dataset.content_tags}
+      selectName="tags"
     />
   </div>
 </div>

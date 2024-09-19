@@ -23,7 +23,7 @@ export default function getData() {
         life_cycle_phase: row.life_cycle_phase,
         date_string: row.date,
         date: "",
-        content_tags: row.content_tags ? row.content_tags.split(",").map(tag => tag.trim()) : [],
+        content_tags: row.content_tags ? row.content_tags.split(";").map(tag => tag.trim()) : [],
       }
     })
     console.log(data)
@@ -57,25 +57,31 @@ export default function getData() {
 }
 
 function getAllContentTags(data) {
-  // Create a Set to store unique tags
-  const allTags = new Set()
+  // Create a Map to store unique tags (case-insensitive)
+  const tagMap = new Map()
 
   // Iterate through each item in the data
   data.forEach(item => {
     // Ensure content_tags is an array before proceeding
     if (Array.isArray(item.content_tags)) {
-      // Add each tag to the Set
+      // Process each tag
       item.content_tags.forEach(tag => {
         // Only add non-empty tags
-        if (tag && typeof tag === 'string' && tag.trim() !== '') {
-          allTags.add(tag.trim())
+        if (tag && typeof tag === 'string') {
+          const trimmedTag = tag.trim()
+          const lowerTag = trimmedTag.toLowerCase()
+          // If the tag doesn't exist (case-insensitive), add it
+          // If it exists, keep the version with the preferred capitalization
+          if (!tagMap.has(lowerTag) || trimmedTag.length > tagMap.get(lowerTag).length) {
+            tagMap.set(lowerTag, trimmedTag)
+          }
         }
       })
     }
   })
 
-  // Convert the Set to an array and sort it alphabetically
-  return Array.from(allTags).sort((a, b) => a.localeCompare(b))
+  // Convert the Map values to an array and sort it alphabetically
+  return Array.from(tagMap.values()).sort((a, b) => a.localeCompare(b))
 }
 
 
