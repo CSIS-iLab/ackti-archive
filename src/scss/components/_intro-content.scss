@@ -239,7 +239,8 @@ main {
 }
 
 .wrapper {
-  background: url(https://res.cloudinary.com/csisideaslab/image/upload/v1696427112/poni/PONI-Table-Header1-Temp_2.jpg);
+  //background: url(https://res.cloudinary.com/csisideaslab/image/upload/v1696427112/poni/PONI-Table-Header1-Temp_2.jpg);
+  background-color: $color-darkest-blue;
   background-size: cover;
   background-repeat: no-repeat;
   min-height: calc(100vh - 40px);

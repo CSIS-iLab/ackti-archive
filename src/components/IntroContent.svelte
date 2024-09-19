@@ -13,9 +13,7 @@
           The Arms Control Knowledge Transfer Initiative
         </h1>
         <p class="intro-content__introduction">
-          A curated database of events illustrating the evolution of nuclear
-          threats in the lead-up to—and throughout the first year of—the war in
-          Ukraine, from the <a
+          An archive of documents, interviews, and analysis dedicated to preserving arms control knowledge for future generations of experts.<br>From the <a
             class="intro-content__link"
             href="https://www.csis.org/programs/international-security-program/project-nuclear-issues"
             target="_blank">CSIS Project on Nuclear Issues</a
