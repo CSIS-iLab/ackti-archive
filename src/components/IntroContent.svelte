@@ -10,10 +10,10 @@
           By the Project on Nuclear Issues
         </p>
         <h1 class="intro-content__title">
-          The Arms Control Knowledge Transfer Initiative
+          Arms Control Knowledge Transfer Initiative Primary Source Archive
         </h1>
         <p class="intro-content__introduction">
-          An archive of documents, interviews, and analysis dedicated to preserving arms control knowledge for future generations of experts.<br>From the <a
+          An expanding library of primary source documents related to the design, negotiation, and implementation of arms control across US history, <br>from the <a
             class="intro-content__link"
             href="https://www.csis.org/programs/international-security-program/project-nuclear-issues"
             target="_blank">CSIS Project on Nuclear Issues</a
