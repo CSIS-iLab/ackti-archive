@@ -134,7 +134,7 @@ main {
     }
 
     &:hover {
-      color: $color-dark-yellow;
+      color: $color-dark-yellow !important;
 
       .intro-content__more__icon-container {
         fill: $color-dark-yellow;
