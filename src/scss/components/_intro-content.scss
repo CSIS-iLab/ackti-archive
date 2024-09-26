@@ -5,17 +5,17 @@ main {
 }
 
 .intro-content {
-	padding-top: rem(132);
+	padding-top: rem(40);
 	max-width: $size__intro-content-wide-max-width;
 	text-align: left;
 
   &__overline {
     &--small, &--regular {
       @extend %text-style-paragraph-1;
-      font-size: 24px;
-      margin-bottom: rem(4);
+      margin-bottom: 20px;
       margin-left: 0;  // Set margin-left to 0
       padding-left: 0; 
+      margin-right: 10px;
     }
   }
 
@@ -25,7 +25,7 @@ main {
     padding: 10px 20px 10px 20px; // Adjust padding if necessary
   }
   &__title {
-    margin: 1rem 0;  // Remove side margins
+    margin: 0 0;  // Remove side margins
 
     // Use Flexbox for vertical alignment
     display: flex;
@@ -38,6 +38,10 @@ main {
 
     text-align: left; // Ensure text is aligned to the left
     padding-left: 0;  // Remove any padding that might push it inward
+
+    @include breakpoint("medium") {
+      margin: 1rem 0;  // Remove side margins
+    }
   }
 
   &__title-text {
@@ -76,6 +80,7 @@ main {
       @extend %text-style-ui-3;
       background-color: $color-text-main;
       padding: 10px 20px 10px 20px;
+      margin-bottom: 20px;
     }
 
     .intro-content__more__icon-container {
@@ -123,6 +128,10 @@ main {
       flex-direction: row;
       max-width: $size__intro-content-wide-max-width;
     }
+  }
+
+  @include breakpoint("medium") {
+    padding-top: rem(132);
   }
 }
 
