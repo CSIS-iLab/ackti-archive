@@ -5,12 +5,18 @@
 <div class="wrapper">
   <main class="container intro-content">
     <div class="intro-content__container">
-      <div class="intro-content__flex-left">
+      <div class="intro-content">
         <p class="intro-content__overline--regular">
-          By the Project on Nuclear Issues
+          <span class="intro-content__overline-text">By the Project on Nuclear Issues</span>
         </p>
         <h1 class="intro-content__title">
-          Arms Control Knowledge Transfer Initiative Primary Source Archive
+          <span class="intro-content__title-text">Arms Control Knowledge </span>
+        </h1>
+        <h1 class="intro-content__title">
+          <span class="intro-content__title-text">Transfer Initiative</span>
+        </h1>
+        <h1 class="intro-content__title">
+          <span class="intro-content__title-text">Primary Source Archive</span>
         </h1>
         <p class="intro-content__introduction">
           An expanding library of primary source documents related to the design, negotiation, and implementation of arms control across US history, <br>from the <a

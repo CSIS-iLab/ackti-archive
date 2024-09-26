@@ -5,75 +5,55 @@ main {
 }
 
 .intro-content {
-  padding-top: rem(132);
-  padding-left: 0;
-  padding-right: 0;
-  max-width: $size__intro-content-wide-max-width;
-  text-align: center;
-
-  &__container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    margin-left: 0;
-
-    @include breakpoint("medium") {
-      flex-direction: row;
-      justify-content: flex-start;
-    }
-  }
-
-  &__flex-left {
-    flex: 1;
-    padding: 20px;
-
-    @include breakpoint("medium") {
-      flex: 2;
-    }
-  }
-
-  &__flex-right {
-    flex: 1;
-  }
+	padding-top: rem(132);
+	max-width: $size__intro-content-wide-max-width;
+	text-align: left;
 
   &__overline {
-    &--small {
-      @extend %text-style-ui-5-caps;
-      color: $color-main-gray;
+    &--small, &--regular {
+      @extend %text-style-paragraph-1;
+      font-size: 24px;
       margin-bottom: rem(4);
-    }
-
-    &--regular {
-      @extend %text-style-ui-4-caps;
-      color: $color-main-gray;
-
-      &::after {
-        content: "";
-        display: block;
-        border-bottom: 2px solid $color-main-gray;
-        width: 23px;
-        height: 2px;
-        margin: 0 auto;
-        margin-top: rem(8);
-      }
+      margin-left: 0;  // Set margin-left to 0
+      padding-left: 0; 
     }
   }
 
-  &__title {
-    margin-top: rem(12);
-    margin-bottom: rem(48);
-
-    @extend %text-style-heading-1;
+  &__overline-text {
+    background-color: $color-text-main;
     color: $color-main-gray;
-    text-align: center;
+    padding: 10px 20px 10px 20px; // Adjust padding if necessary
+  }
+  &__title {
+    margin: 1rem 0;  // Remove side margins
+
+    // Use Flexbox for vertical alignment
+    display: flex;
+    align-items: center;
+
+    // Extend the existing text style
+    @extend %text-style-heading-1;
+
+    color: $color-main-gray;
+
+    text-align: left; // Ensure text is aligned to the left
+    padding-left: 0;  // Remove any padding that might push it inward
+  }
+
+  &__title-text {
+    background-color: $color-text-main;
+    padding: 10px 20px 10px 20px; // Adjust padding if necessary
   }
 
   &__introduction {
     margin-bottom: rem(16);
     max-width: $size__content-max-width;
     @extend %text-style-paragraph-1;
+    background-color: $color-text-main;
     color: $color-main-gray;
+    text-align: left;
+    margin-left: 0;  // Remove any margin that might push the text inward
+    padding-left: 20px; // Remove any padding that might push the text inward
   }
 
   &__more {
@@ -94,6 +74,8 @@ main {
       align-items: center;
       justify-content: center;
       @extend %text-style-ui-3;
+      background-color: $color-text-main;
+      padding: 10px 20px 10px 20px;
     }
 
     .intro-content__more__icon-container {
@@ -196,7 +178,7 @@ main {
 }
 
 .wrapper {
-  //background: url(https://res.cloudinary.com/csisideaslab/image/upload/v1696427112/poni/PONI-Table-Header1-Temp_2.jpg);
+  background: url(https://res.cloudinary.com/csisideaslab/image/upload/v1727372665/poni/ACKTI-Table-Header-v1.jpg);
   background-color: $color-darkest-blue;
   background-size: cover;
   background-repeat: no-repeat;

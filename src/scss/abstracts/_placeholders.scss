@@ -4,38 +4,38 @@
 %text-style-heading-1 {
   @include font-clamp(36px, 53px);
   font-family: $font-family-heading;
-  font-weight: $font-weight-bold;
+  font-weight: $font-weight-default;
   line-height: 1.1;
 }
 
 %text-style-heading-2 {
   @include font-clamp(28px, 32px);
   font-family: $font-family-heading;
-  font-weight: $font-weight-bold;
+  font-weight: $font-weight-default;
 }
 
 %text-style-heading-3 {
   @include font-clamp(24px, 28px);
   font-family: $font-family-heading;
-  font-weight: $font-weight-bold;
+  font-weight: $font-weight-default;
 }
 
 %text-style-heading-4 {
   @include font-clamp(21px, 24px);
   font-family: $font-family-heading;
-  font-weight: $font-weight-bold;
+  font-weight: $font-weight-default;
 }
 
 %text-style-heading-5 {
   @include font-size(20px);
   font-family: $font-family-heading;
-  font-weight: $font-weight-bold;
+  font-weight: $font-weight-default;
 }
 
 %text-style-heading-6 {
   @include font-size(18px);
   font-family: $font-family-heading;
-  font-weight: $font-weight-bold;
+  font-weight: $font-weight-default;
 }
 
 %text-style-paragraph-1 {
