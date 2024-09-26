@@ -2,7 +2,7 @@
 
 .footer {
   @extend %text-style-paragraph-2;
-  color: $color-main-gray;
+  color: $color-light-blue;
   padding-top: rem(48);
   padding-bottom: rem(32);
   padding-right: var(--container-padding);
@@ -41,11 +41,11 @@
   }
 
   a {
-    color: $color-main-gray;
+    color: $color-light-blue;
     transition: color 0.3s ease-in-out;
 
     &:hover {
-      color: $color-dark-yellow;
+      color: $color-lightest-blue;
       text-decoration: none;
     }
   }
@@ -59,11 +59,11 @@
     margin-bottom: rem(24);
 
     a {
-      color: $color-main-gray;
+      color: $color-light-blue;
       transition: color 0.3s ease-in-out;
 
       &:hover {
-        color: $color-dark-yellow;
+        color: $color-lightest-blue;
         text-decoration: none;
       }
 
@@ -86,7 +86,7 @@
 
   &__address {
     grid-area: address;
-    color: $color-main-gray;
+    color: $color-light-blue;
     margin-top: rem(11);
     font-style: normal;
 
@@ -109,11 +109,11 @@
     }
 
     a {
-      color: $color-light-yellow;
+      color: $color-light-blue;
       transition: color 0.3s ease-in-out;
 
       &:hover {
-        color: $color-dark-yellow;
+        color: $color-lightest-blue;
         text-decoration: none;
       }
     }
@@ -121,7 +121,7 @@
 
   &__copyright {
     grid-area: copyright;
-    color: $color-main-gray;
+    color: $color-light-blue;
     @extend %text-style-ui-4;
     margin-top: rem(32);
 
@@ -132,7 +132,7 @@
 
   &__privacy-pol {
     @extend %text-style-ui-4-underline;
-    color: $color-main-gray;
+    color: $color-light-blue;
 
     &:focus {
       text-decoration: none;

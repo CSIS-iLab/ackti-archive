@@ -114,7 +114,7 @@ main {
   }
 
   &__link {
-    color: $color-light-yellow;
+    color: $color-light-blue;
     text-decoration: none;
     transition: $transition__link;
 
@@ -129,32 +129,32 @@ main {
     }
 
     .intro-content__more__icon-container {
-      fill: $color-light-yellow;
+      fill: $color-light-blue;
       transition: $transition__link;
     }
 
     &:hover {
-      color: $color-dark-yellow !important;
+      color: $color-lightest-blue !important;
 
       .intro-content__more__icon-container {
-        fill: $color-dark-yellow;
+        fill: $color-lightest-blue;
         transition: $transition__link;
       }
     }
 
     &:visited {
-      color: $color-light-yellow;
+      color: $color-medium-blue;
 
       .intro-content__more__icon-container {
-        fill: $color-light-yellow;
+        fill: $color-medium-blue;
       }
     }
 
     &:focus {
       outline-color: $color-focus-outline;
-      color: $color-dark-yellow;
+      color: $color-lightest-blue;
       .intro-content__more__icon-container {
-        fill: $color-dark-yellow;
+        fill: $color-lightest-blue;
       }
     }
   }
