@@ -12,30 +12,26 @@
   let datepicker
 
   onMount(() => {
-    let dates = dataset.dates
+    let dates = dataset.dates.map(date => new Date(date)); // Ensure all dates are Date objects
     let defaultDate 
 
     // Find the oldest date
-    const oldestDate = new Date(Math.min(...dates.map(date => new Date(date))));
-    const oldestDateFormatted = oldestDate.toISOString().split('T')[0];
+    const oldestDate = new Date(Math.min(...dates));
 
     // Find the most recent date
-    const mostRecentDate = new Date(Math.max(...dates.map(date => new Date(date))));
-    const mostRecentDateFormatted = mostRecentDate.toISOString().split('T')[0];
-
-    // console.log(oldestDateFormatted); // Output: 1967-02-14
-    // console.log(mostRecentDateFormatted); // Output: 1991-10-16
+    const mostRecentDate = new Date(Math.max(...dates));
 
     if (defaultDateType === "oldest") {
-      defaultDate = oldestDateFormatted 
+      defaultDate = oldestDate
     } else {
-      defaultDate = mostRecentDateFormatted
+      defaultDate = mostRecentDate
     }
 
     flatpickr(datepicker, {
       defaultDate: defaultDate,
-      minDate: oldestDateFormatted,
-      maxDate: mostRecentDateFormatted,
+      minDate: oldestDate,
+      maxDate: mostRecentDate,
+      dateFormat: "m-d-Y",
       onChange: (selectedDates) => {
         if (onDateChange) {
           onDateChange(selectedDates[0])
