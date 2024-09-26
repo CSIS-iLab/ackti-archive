@@ -251,7 +251,7 @@
                   <div class="link">
                     {#each rows.timelineEvent.pdfs as pdf, index}
                       {#if pdf[0] != ""}
-                      PDF:
+                      SOURCE:
                         <a
                           href={pdf[0]}
                           target="_blank"
