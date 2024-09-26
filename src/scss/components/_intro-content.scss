@@ -7,36 +7,75 @@ main {
 .intro-content {
 	padding-top: rem(40);
 	max-width: $size__intro-content-wide-max-width;
-	text-align: left;
+	text-align: center;
+
+  &__desktop {
+    display: none;
+    @include breakpoint("medium") {
+      display: block;
+    }
+  }
+
+  &__mobile {
+    display: block;
+    width: 100%;
+    text-align: center;
+    @include breakpoint("medium") {
+      display: none;
+    }
+  }
 
   &__overline {
-    &--small, &--regular {
+    &--regular {
       @extend %text-style-paragraph-1;
-      margin-bottom: 20px;
-      margin-left: 0;  // Set margin-left to 0
-      padding-left: 0; 
-      margin-right: 10px;
+      margin-bottom: 0px;
+      margin-left: 0;
+      margin-right: 0px;
+      padding-left: 20px;
+      padding-top: 10px;
+      background-color: $color-text-main;
+      color: $color-main-gray;
+
+      // Use the breakpoint mixin correctly
+      @include breakpoint("medium") {
+        margin-bottom: 20px;
+        margin-left: 0;
+        padding-left: 0;
+        margin-right: 10px;
+        background-color: transparent;
+      }
     }
   }
 
   &__overline-text {
     background-color: $color-text-main;
     color: $color-main-gray;
-    padding: 10px 20px 10px 20px; // Adjust padding if necessary
+    padding: 10px 20px 0px 10px;
+    text-align: center;
+
+    width: 100%; // Make the text span the full width of the container
+
+    @include breakpoint("medium") {
+      text-align: center;
+      padding: 10px 20px 10px 20px;
+      width: auto; // Adjust for desktop view, if necessary
+    }
   }
+  
   &__title {
     margin: 0 0;  // Remove side margins
 
     // Use Flexbox for vertical alignment
     display: flex;
     align-items: center;
+    justify-content: center;
 
     // Extend the existing text style
     @extend %text-style-heading-1;
 
     color: $color-main-gray;
 
-    text-align: left; // Ensure text is aligned to the left
+    text-align: center; // Ensure text is aligned to the left
     padding-left: 0;  // Remove any padding that might push it inward
 
     @include breakpoint("medium") {
@@ -55,9 +94,12 @@ main {
     @extend %text-style-paragraph-1;
     background-color: $color-text-main;
     color: $color-main-gray;
-    text-align: left;
-    margin-left: 0;  // Remove any margin that might push the text inward
-    padding-left: 20px; // Remove any padding that might push the text inward
+    text-align: center;
+    justify-content: center;
+    margin: auto;  // Remove any margin that might push the text inward
+    // padding-left: 20px; // Remove any padding that might push the text inward
+    padding: 10px;
+    margin-bottom: 20px;
   }
 
   &__more {
