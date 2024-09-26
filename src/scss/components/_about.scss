@@ -180,19 +180,18 @@
         outline: 0;
 
         .back-top__icon-container {
-          filter: invert(22%) sepia(54%) saturate(2858%) hue-rotate(194deg)
-            brightness(92%) contrast(101%);
+          fill: $color-dark-yellow;
           transition: $transition__link;
         }
       }
 
-      &:visited {
-        color: $color-dark-yellow;
+      // &:visited {
+      //   color: $color-dark-yellow;
 
-        .back-top__icon-container {
-          fill: $color-dark-yellow;
-        }
-      }
+      //   .back-top__icon-container {
+      //     fill: $color-dark-yellow;
+      //   }
+      // }
     }
 
     &__icon-container {

@@ -45,8 +45,8 @@
       </p>
       <p class="about__development__description">
         Produced by Mariel de la Garza.
-        <br />
-        Copyediting by ___________.
+        <!-- <br />
+        Copyediting by ___________. -->
         <br />
         Cover design by Michael Kohler.
       </p>
