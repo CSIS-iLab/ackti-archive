@@ -192,49 +192,6 @@ main {
         align-items: center;
       }
     }
-
-    &--bars {
-      position: relative;
-      display: block;
-      flex-grow: 2;
-      border-right: 1px solid $color-borders-gray-300;
-      border-left: 1px solid $color-borders-gray-300;
-
-      .bar {
-        display: flex;
-        align-items: center;
-        background: $color-background-gray-300;
-        @extend %text-style-ui-4;
-      }
-
-      span {
-        height: 100%;
-        background: $color-text-gray-500;
-        display: inline-block;
-        margin-right: rem(5);
-      }
-
-      &:before,
-      &:after {
-        display: block;
-        position: absolute;
-        top: 100%;
-        width: 20px;
-        color: $color-text-gray-200;
-        text-align: center;
-        @extend %text-style-ui-5;
-      }
-
-      &:before {
-        content: "0";
-        left: -10px;
-      }
-
-      &:after {
-        content: attr(data-total-entries);
-        right: -10px;
-      }
-    }
   }
 }
 

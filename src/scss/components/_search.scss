@@ -55,14 +55,13 @@ label[aria-hidden="true"],
 
       &:not(:placeholder-shown) {
         background-color: transparent;
-        box-shadow: 0 1px $color-borders-gray-100;
+        box-shadow: 0 1px $color-text-gray-100;
         border-radius: 0;
       }
     }
   }
 
   &__input--active {
-    box-shadow: 0 1px $color-brand-blue-600;
     border-radius: 0;
   }
 

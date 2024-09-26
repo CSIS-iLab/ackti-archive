@@ -54,7 +54,7 @@
       background-color: $color-main-gray;
       @extend %text-style-ui-2-bold;
 
-      border-bottom: 1px solid $color-borders-gray-400;
+      border-bottom: 1px solid $color-text-gray-500;
       text-align: left;
 
       @include breakpoint("medium") {
@@ -280,13 +280,12 @@
 
       &:focus {
         outline-width: 3px;
-        outline-style: solid;
+        outline-style: solid; 
         outline-color: $color-focus-outline;
 
         .icon-container {
-          // color: $color-brand-blue-700;
-          filter: invert(22%) sepia(54%) saturate(2858%) hue-rotate(194deg)
-            brightness(92%) contrast(101%);
+          // color: $color-dark-blue;
+          filter: invert(37%) sepia(8%) saturate(2718%) hue-rotate(167deg) brightness(92%) contrast(89%);
         }
       }
 
@@ -294,10 +293,7 @@
         color: $color-dark-yellow;
 
         .icon-container {
-          // color: $color-brand-blue-800;
           opacity: 0.7;
-          // filter: invert(9%) sepia(41%) saturate(6837%) hue-rotate(211deg)
-          //   brightness(98%) contrast(99%);
           fill: $color-dark-yellow;
         }
       }
