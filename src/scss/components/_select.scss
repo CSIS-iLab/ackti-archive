@@ -83,15 +83,15 @@
       background-color: $color-background-gray-100;
 
       .select__select-tag-icon {
-        // color brand blue 600
-        filter: invert(39%) sepia(72%) saturate(6596%) hue-rotate(200deg) brightness(100%) contrast(84%);
+        // color-darkest-red #981E13
+        filter: invert(15%) sepia(91%) saturate(2767%) hue-rotate(353deg) brightness(85%) contrast(94%);
       }
     }
 
     &:focus-within {
       .select__select-tag-icon {
-        // color brand blue 600
-        filter: invert(39%) sepia(72%) saturate(6596%) hue-rotate(200deg) brightness(100%) contrast(84%);
+        // color-darkest-red #981E13
+        filter: invert(15%) sepia(91%) saturate(2767%) hue-rotate(353deg) brightness(85%) contrast(94%);
       }
     }
 
@@ -117,7 +117,7 @@
 
   &__select-tag__counter {
     @extend %text-style-ui-2;
-    color: $color-brand-blue-700;
+    color: $color-darkest-red;
     position: relative;
     //top: rem(10);
 

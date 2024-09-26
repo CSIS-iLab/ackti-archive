@@ -197,6 +197,6 @@
   @use "../scss/components/icon";
 
   :global(.select__select-tag--selected) {
-    color: $color-brand-blue-600 !important;
+    color: $color-darkest-red !important;
   }
 </style>
