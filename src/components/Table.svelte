@@ -10,7 +10,7 @@
   $: sortClass = "inactive"
 
   const sortByColumns = [
-    "date",
+    "date (est)",
     "title",
     "associated agreement",
     "name(s)",
@@ -110,6 +110,8 @@
       filteredData = filteredData.sort(sortTimelineEvent)
     } else if (column == "names") {
       filteredData = filteredData.sort(sortByName)
+    } else if (column == "date") {
+      filteredData = filteredData.sort(sortDate)
     } else {
       filteredData = filteredData.sort(sortDate).sort(sortColumnName)
     }
