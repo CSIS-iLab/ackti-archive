@@ -10,9 +10,9 @@
   &__link {
     @include font-size(16px);
     padding: rem(8);
-    color: $color-light-yellow;
+    color: $color-main-gray;
     transition: $transition__link;
-    fill: $color-light-yellow;
+    fill: $color-main-gray;
 
     &:hover {
       fill: $color-dark-yellow;
