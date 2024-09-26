@@ -74,11 +74,11 @@
       }
 
       &:hover {
-        color: $color-medium-blue;
+        color: $color-lightest-blue;
         transition: $transition__link;
 
         .icon-container {
-          fill: $color-medium-blue;
+          fill: $color-lightest-blue;
           transition: $transition__link;
         }
       }
@@ -131,7 +131,7 @@
       text-decoration: none;
 
       &:hover {
-        color: $color-medium-blue;
+        color: $color-lightest-blue;
         transition: $transition__link;
       }
 
@@ -165,11 +165,11 @@
       }
 
       &:hover {
-        color: $color-medium-blue;
+        color: $color-lightest-blue;
         transition: $transition__link;
 
         .back-top__icon-container {
-          fill: $color-medium-blue;
+          fill: $color-lightest-blue;
           transition: $transition__link;
         }
       }
