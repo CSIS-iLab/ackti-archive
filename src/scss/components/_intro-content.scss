@@ -64,22 +64,25 @@ main {
   
   &__title {
     margin: 0 0;  // Remove side margins
-
-    // Use Flexbox for vertical alignment
-    display: flex;
+    display: flex; // Use Flexbox for vertical alignment
     align-items: center;
     justify-content: center;
 
-    // Extend the existing text style
-    @extend %text-style-heading-1;
-
+    // Default text style for smaller screens
+    @extend %text-style-heading-2;
+    font-weight: regular; 
     color: $color-main-gray;
-
-    text-align: center; // Ensure text is aligned to the left
-    padding-left: 0;  // Remove any padding that might push it inward
+    text-align: center;
+    padding-left: 0;
 
     @include breakpoint("medium") {
-      margin: 1rem 0;  // Remove side margins
+      // @extend %text-style-headng-1 -- you can't extend across
+      // media queries so the settings are copied here.
+      @include font-clamp(36px, 53px);
+      font-family: $font-family-heading;
+      font-weight: $font-weight-default;
+      line-height: 1.1;      
+      margin: 1rem 0;
     }
   }
 
