@@ -12,14 +12,14 @@
     padding: rem(8);
     color: $color-main-gray;
     transition: $transition__link;
-    fill: $color-light-blue;
+    fill: $color-main-gray;
 
     &:hover {
-      fill: $color-lightest-blue;
+      fill: $color-light-blue;
     }
 
     &:focus {
-      fill: $color-lightest-blue;
+      fill: $color-light-blue;
       outline: 3px solid $color-focus-outline;
     }
   }
@@ -36,15 +36,15 @@
     @include font-size(16px);
     padding: rem(8);
     color: $color-main-gray;
-    fill: $color-light-blue;
+    fill: $color-main-gray;
     transition: $transition__link;
 
     &:hover {
-      fill: $color-lightest-blue;
+      fill: $color-light-blue;
     }
 
     &:focus {
-      fill: $color-lightest-blue;
+      fill: $color-light-blue;
       outline: 3px solid $color-focus-outline;
     }
   }
