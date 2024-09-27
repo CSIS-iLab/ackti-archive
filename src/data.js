@@ -152,8 +152,6 @@ function createAndAssignDateObjects(array) {
       } else {
         dateObject = new Date(dateString);
       }
-
-      // dateObject = new Date(dateString);
       
       // Check if the date is valid
       if (!isNaN(dateObject.getTime())) {
@@ -169,7 +167,8 @@ function createAndAssignDateObjects(array) {
       }
     } else {
       console.warn(`Empty date string at index ${i}`);
-      array[i].date = null;
+      array[i].date = null; // Or a placeholder like new Date('9999-12-31') if you want it sorted last
+      array[i].date_string = ''; // Update for display or keep as an empty string
     }
   }
 
