@@ -132,14 +132,14 @@
     overflow: hidden;
     white-space: nowrap;
     @extend %text-style-ui-2;
-    color: $color-text-gray-200;
+    color: $color-text-gray-300;
     position: relative;
     //top: rem(10);
     width: rem(180);
     height: rem(21);
 
     &::placeholder {
-      color: $color-text-gray-200;
+      color: $color-text-gray-300;
     }
 
     &:focus {
