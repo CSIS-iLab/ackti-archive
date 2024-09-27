@@ -132,10 +132,10 @@
   .sort-icon {
     font-size: rem(8);
     pointer-events: none;
-    color: $color-charcoal;
+    color: $color-text-gray-300;
 
     &--active {
-      color: $color-charcoal;
+      color: $color-text-gray-300;
     }
 
     &--inactive {
@@ -264,18 +264,18 @@
         margin-left: rem(5);
         // filter: invert(39%) sepia(72%) saturate(6596%) hue-rotate(200deg)
         //   brightness(100%) contrast(84%);
-        fill: $color-light-yellow;
+        fill: $color-light-blue;
       }
 
       &:hover {
-        color: $color-dark-yellow;
+        color: $color-lightest-blue;
         transition: $transition__link;
 
         .icon-container {
           // color brand-blue-700
           // filter: invert(22%) sepia(54%) saturate(2858%) hue-rotate(194deg)
           //   brightness(92%) contrast(101%);
-          fill: $color-dark-yellow;
+          fill: $color-lightest-blue;
         }
       }
 
@@ -291,11 +291,11 @@
       }
 
       &:visited {
-        color: $color-dark-yellow;
+        color: $color-medium-blue;
 
         .icon-container {
           opacity: 0.7;
-          fill: $color-dark-yellow;
+          fill: $color-medium-blue;
         }
       }
     }

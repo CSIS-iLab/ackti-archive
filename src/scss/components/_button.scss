@@ -4,13 +4,13 @@
   padding: 6px 8px;
 
   &:hover {
-    color: $color-text-gray-400;
+    color: $color-light-blue;
     background-color: $color-text-gray-200;
   }
   
   &--scroll {
     color: #7e8694;
-    background-color: $color-button-background;
+    background-color: $color-text-white;
 
     &--left {
       border-radius: 50px 0 0 50px;

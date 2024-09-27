@@ -40,7 +40,7 @@ label[aria-hidden="true"],
     padding-bottom: rem(8);
 
     &::placeholder {
-      color: $color-placeholder;
+      color: $color-text-gray-300;
     }
 
     &:focus {
@@ -93,6 +93,6 @@ label[aria-hidden="true"],
     height: 100%;
     display: flex;
     align-items: center;
-    fill: $color-charcoal;
+    fill: $color-text-gray-300;
   }
 }

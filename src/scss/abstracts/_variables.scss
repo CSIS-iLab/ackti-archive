@@ -9,15 +9,6 @@
 }
 
 // Variables
-
-/*Color palette: https://coolors.co/b68600-ffc72c-ebdbc1-eaeaea-901a1a-350000-590000*/
-$color-dark-yellow: rgba(182, 134, 0, 1); //#B68600
-$color-light-yellow: rgba(255,202,86,1);  //#FFCA56
-$color-platinum: rgba(234, 234, 234, 1); //#EAEAEA
-$color-placeholder: rgba(74, 70, 67, 1); //#4A4643
-
-$color-text-gray-200: rgba(126, 134, 148, 1); //#7E8694
-$color-charcoal: rgba(63, 79, 95, 1); //#3F4F5F  -- consider gray-300
 $color-button-background: rgba(191,191,191, 1); //#BFBFBF
 
 /*ACKTI STYLE GUIDE COLORS*/
@@ -38,7 +29,7 @@ $color-lightest-blue: rgba(216,241,251, 1); //#D8F1FB
 $color-focus-outline: rgba(151, 200, 247, 0.68);
 $color-text-white: rgba(250, 250, 250, 1);
 $color-text-gray-100: rgba(188, 194, 206, 1);
-$color-text-gray-200: rgba(126, 134, 148, 1);
+$color-text-gray-200: rgba(126, 134, 148, 1); //#7E8694
 $color-text-gray-300: rgba(70, 79, 96, 1);
 $color-text-gray-400: rgba(43, 47, 56, 1);
 $color-text-gray-500: rgba(23, 28, 38, 1);

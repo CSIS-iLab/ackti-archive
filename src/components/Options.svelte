@@ -432,7 +432,7 @@
   :global(.selectContainer) {
     --internalPadding: 0 4px 0 0 !important;
     --itemFirstBorderRadius: 2px;
-    --placeholderColor: $color-placeholder;
+    --placeholderColor: $color-text-gray-300;
   }
 
   :global(.selectContainer .item) {
