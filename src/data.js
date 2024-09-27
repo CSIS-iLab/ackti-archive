@@ -141,13 +141,13 @@ function createAndAssignDateObjects(array) {
 
       // Handle specific invalid dates
       if (dateString === '09/1990') {
-        dateObject = new Date('1990-09-01');
+        dateObject = new Date('1990-09-02');
         array[i].date_string = 'Sep. 1990'; // Update for display
       } else if (dateString === '08/2005') {
-        dateObject = new Date('2005-08-01');
+        dateObject = new Date('2005-08-02');
         array[i].date_string = 'Aug. 2005'; // Update for display
       } else if (dateString === '07/2010') {
-        dateObject = new Date('2010-07-01');
+        dateObject = new Date('2010-07-02');
         array[i].date_string = 'Jul. 2010'; // Update for display
       } else {
         dateObject = new Date(dateString);
@@ -172,6 +172,7 @@ function createAndAssignDateObjects(array) {
     }
   }
 
+  console.log(dates)
   return dates.filter(date => date !== null);
 }
 
