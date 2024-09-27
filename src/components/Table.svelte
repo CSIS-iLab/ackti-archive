@@ -55,7 +55,8 @@
   $: sortBy = { col: "title", ascending: true } // Changed "event" to "title"
 
   $: sort = (e, column) => {
-    column = column.toLowerCase().replace(/\s/g, "_").replace("(s)", "s") // Ensure "Name(s)" is converted to "names"
+    column = column.toLowerCase().replace(/\s/g, "_")
+
     const iconsActive = document.querySelectorAll(".sort-icon--active")
     iconsActive.forEach((icon) => {
       icon.classList.remove("sort-icon--active")
@@ -95,7 +96,8 @@
           : 0
 
     let sortByName = (a, b) => {
-      const getFirstName = (row) => row.names[0].name.toLowerCase() // Extract the first name in lowercase
+      const getFirstName = (row) =>
+        row.names.length > 0 ? row.names[0].name.toLowerCase() : ""
       const nameA = getFirstName(a)
       const nameB = getFirstName(b)
       return nameA < nameB
@@ -172,7 +174,7 @@
                   >
                     <button
                       class="sort-icon sort-icon--{sortBy.col ==
-                        name.toLowerCase().split(' ').join('_') &&
+                        String(name.toLowerCase().split(' ').join('_')) &&
                       sortBy.ascending
                         ? 'inactive'
                         : 'active'}">▲</button
@@ -251,18 +253,18 @@
                   <div class="link">
                     {#each rows.timelineEvent.pdfs as pdf, index}
                       {#if pdf[0] != ""}
-                      SOURCE:
+                        SOURCE:
                         <a
                           href={pdf[0]}
                           target="_blank"
                           rel="noopener noreferrer"
                           >{pdf[1]}
                         </a>
-                      <br>
-                      CITATION INFORMATION: {pdf[2]}
+                        <br />
+                        CITATION INFORMATION: {pdf[2]}
                       {/if}
                     {/each}
-                    <br>
+                    <br />
                   </div>
                 </div>
                 {#if rows.timelineEvent.image_url && rows.timelineEvent.image_source}

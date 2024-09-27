@@ -84,11 +84,13 @@ function getAllContentTags(data) {
 
 
 function parseNames(namesString) {
+  if (!namesString || namesString.trim() === '') {
+    return [{ name: '', title: '' }];
+  }
   return namesString.split(";").map(person => {
     person = person.trim();
     const firstCommaIndex = person.indexOf(',');
     if (firstCommaIndex === -1) {
-      // No comma found, assume it's just a name without a title
       return { name: person.trim(), title: "" };
     }
     const name = person.slice(0, firstCommaIndex).trim();

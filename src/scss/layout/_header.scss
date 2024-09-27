@@ -43,17 +43,14 @@
     }
 
     &:hover {
-      filter: invert(53%) sepia(59%) saturate(4508%) hue-rotate(27deg)
-        brightness(99%) contrast(101%);
+      filter: invert(68%) sepia(74%) saturate(1332%) hue-rotate(174deg) brightness(109%) contrast(87%); // $color-light-blue
     }
   }
 
   a,
   button {
     &:hover {
-      // color brand-blue-600
-      filter: invert(53%) sepia(59%) saturate(4508%) hue-rotate(27deg)
-        brightness(99%) contrast(101%);
+      filter: invert(68%) sepia(74%) saturate(1332%) hue-rotate(174deg) brightness(109%) contrast(87%); // $color-light-blue
       color: $color-focus-outline;
       transition: $transition__link;
     }
