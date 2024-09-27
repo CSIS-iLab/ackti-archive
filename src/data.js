@@ -138,7 +138,22 @@ function createAndAssignDateObjects(array) {
     let dateObject = null;
 
     if (dateString && dateString.trim() !== '') {
-      dateObject = new Date(dateString);
+
+      // Handle specific invalid dates
+      if (dateString === '09/1990') {
+        dateObject = new Date('1990-09-01');
+        array[i].date_string = 'Sep. 1990'; // Update for display
+      } else if (dateString === '08/2005') {
+        dateObject = new Date('2005-08-01');
+        array[i].date_string = 'Aug. 2005'; // Update for display
+      } else if (dateString === '07/2010') {
+        dateObject = new Date('2010-07-01');
+        array[i].date_string = 'Jul. 2010'; // Update for display
+      } else {
+        dateObject = new Date(dateString);
+      }
+
+      // dateObject = new Date(dateString);
       
       // Check if the date is valid
       if (!isNaN(dateObject.getTime())) {
