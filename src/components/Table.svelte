@@ -81,12 +81,16 @@
           ? 1 * sortModifier
           : 0
 
-    let sortDate = (a, b) =>
-      a.date < b.date
+    let sortDate = (a, b) => {
+      if (a.date === null && b.date === null) return 0 // If both are null, treat them as equal
+      if (a.date === null) return sortBy.ascending ? 1 : -1 // Null dates go last in ascending, first in descending
+      if (b.date === null) return sortBy.ascending ? -1 : 1 // Null dates go last in ascending, first in descending
+      return a.date < b.date
         ? -1 * sortModifier
         : a.date > b.date
           ? 1 * sortModifier
           : 0
+    }
 
     let sortColumnName = (a, b) =>
       a[column] < b[column]
