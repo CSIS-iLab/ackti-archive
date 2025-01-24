@@ -151,16 +151,12 @@
 
     &--sticky {
       position: sticky;
-      top: rem(48);
+      top: rem(65);
       z-index: 10;
       box-shadow:
         0 1px 2px hsl(0deg 0% 0% / 5%),
         0 1px 4px hsl(0deg 0% 0% / 5%),
         0 2px 8px hsl(0deg 0% 0% / 5%);
-
-      @include breakpoint("medium") {
-        top: rem(50);
-      }
     }
   }
 }
