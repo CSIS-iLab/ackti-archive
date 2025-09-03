@@ -16,6 +16,9 @@ export default function getData() {
           ],
         },
         associated_agreement: row.associated_agreement,
+        associated_agreements_list: row.associated_agreement
+          ? row.associated_agreement.split(";").map(s => s.trim()).filter(Boolean)
+          : [],
         names: parseNames(row.names),
         type: row.type_of_resource,
         life_cycle_phase: row.life_cycle_phase,
@@ -128,52 +131,77 @@ function createAndAssignNames(array) {
   return nameArray.sort((a, b) => a.localeCompare(b));
 }
 
+function extractDatesFromString(str) {
+  if (!str) return [];
+  // split on semicolons/newlines first
+  const pieces = String(str).split(/[\n;]+/).map(s => s.trim()).filter(Boolean);
+  const out = [];
 
-function createAndAssignDateObjects(array) {
-  let dates = [];
-  let date_strings = [];
+  const pushIfValid = (d) => { if (d instanceof Date && !isNaN(d)) out.push(d); };
 
-  for (let i = 0; i < array.length; i++) {
-    let dateString = array[i].date_string;
-    let dateObject = null;
-
-    if (dateString && dateString.trim() !== '') {
-
-      // Handle specific invalid dates
-      if (dateString === '09/1990') {
-        dateObject = new Date('1990-09-02');
-        array[i].date_string = 'Sep. 1990'; // Update for display
-      } else if (dateString === '08/2005') {
-        dateObject = new Date('2005-08-02');
-        array[i].date_string = 'Aug. 2005'; // Update for display
-      } else if (dateString === '07/2010') {
-        dateObject = new Date('2010-07-02');
-        array[i].date_string = 'Jul. 2010'; // Update for display
-      } else {
-        dateObject = new Date(dateString);
+  for (const p of pieces) {
+    // Range like "05/18/2010 - 05/19/2010"
+    const range = p.split(/\s*-\s*/).map(s => s.trim()).filter(Boolean);
+    if (range.length === 2) {
+      for (const side of range) {
+        // recurse per side (it might be mm/dd/yyyy or m/yyyy)
+        extractDatesFromString(side).forEach(pushIfValid);
       }
-      
-      // Check if the date is valid
-      if (!isNaN(dateObject.getTime())) {
-        array[i].date = dateObject;
-        
-        if (!date_strings.includes(dateString)) {
-          date_strings.push(dateString);
-          dates.push(dateObject);
-        }
-      } else {
-        console.warn(`Invalid date string: ${dateString}`);
-        array[i].date = null;
-      }
-    } else {
-      console.warn(`Empty date string at index ${i}`);
-      array[i].date = null; // Or a placeholder like new Date('9999-12-31') if you want it sorted last
-      array[i].date_string = ''; // Update for display or keep as an empty string
+      continue;
     }
+
+    // mm/dd/yyyy
+    if (/^\d{1,2}\/\d{1,2}\/\d{4}$/.test(p)) {
+      const [m, d, y] = p.split("/").map(Number);
+      pushIfValid(new Date(y, m - 1, d));
+      continue;
+    }
+
+    // m/yyyy
+    if (/^\d{1,2}\/\d{4}$/.test(p)) {
+      const [m, y] = p.split("/").map(Number);
+      pushIfValid(new Date(y, m - 1, 1)); // first of month
+      continue;
+    }
+
+    // yyyy
+    if (/^\d{4}$/.test(p)) {
+      const y = Number(p);
+      pushIfValid(new Date(y, 0, 1)); // Jan 1
+      continue;
+    }
+
+    // last resort: let Date try
+    const d = new Date(p);
+    if (!isNaN(d)) pushIfValid(d);
   }
 
-  console.log(dates)
-  return dates.filter(date => date !== null);
+  return out;
+}
+
+function createAndAssignDateObjects(array) {
+  const allDates = [];
+
+  for (let i = 0; i < array.length; i++) {
+    const raw = array[i].date_string;
+    const dates = extractDatesFromString(raw);
+
+    // store useful fields on each row
+    array[i].dates = dates; // array of Dates (may be empty)
+    array[i].date_min = dates.length ? new Date(Math.min(...dates)) : null;
+    array[i].date_max = dates.length ? new Date(Math.max(...dates)) : null;
+
+    // keep original 'date' for backward compatibility (use min)
+    array[i].date = array[i].date_min;
+
+    // collect for picker bounds
+    allDates.push(...dates);
+  }
+
+  // Return a de-duplicated, sorted list of Dates for the DatePicker
+  const uniq = Array.from(new Set(allDates.map(d => d.getTime()))).map(t => new Date(t));
+  uniq.sort((a, b) => a - b);
+  return uniq;
 }
 
 function formatType(array) {
@@ -193,6 +221,11 @@ function formatType(array) {
 }
 
 
+// data.js — replace the whole function
 function formatAssociatedAgreements(array) {
-  return [...new Set(array.map((el) => el.associated_agreement))]
+  const set = new Set();
+  array.forEach(row => {
+    (row.associated_agreements_list || []).forEach(a => set.add(a));
+  });
+  return [...set].sort((a, b) => a.localeCompare(b));
 }
