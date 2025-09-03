@@ -25,7 +25,9 @@
             ? row.content_tags.some((tag) => selectedTags.includes(tag))
             : true
 
-        const rowDate = new Date(row.date_string)
+        // Use parsed date bounds if present; fall back to single date
+        const rowMin = row.date_min ?? row.date ?? null
+        const rowMax = row.date_max ?? row.date ?? null
         const matchesSpeaker = selectedSpeaker
           ? row.names.some(
               (person) =>
@@ -46,11 +48,19 @@
               .includes(selectedType.toLowerCase())
           : true
 
+        // A row matches the range if its dates overlap the selected window.
+        // Start filter: keep rows whose latest date is >= chosen start.
         const matchesStartDate = selectedStartDate
-          ? rowDate >= new Date(selectedStartDate)
+          ? rowMax
+            ? rowMax >= new Date(selectedStartDate)
+            : false
           : true
+
+        // End filter: keep rows whose earliest date is <= chosen end.
         const matchesEndDate = selectedEndDate
-          ? rowDate <= new Date(selectedEndDate)
+          ? rowMin
+            ? rowMin <= new Date(selectedEndDate)
+            : false
           : true
         const matchesLifeCyclePhase = selectedLifeCyclePhase
           ? row.life_cycle_phase === selectedLifeCyclePhase
@@ -80,7 +90,11 @@
           matchesLifeCyclePhase
         )
       })
-      .sort((a, b) => (a.date < b.date ? -1 : a.date > b.date ? 1 : 0))
+      .sort((a, b) => {
+        const ad = a.date_min ?? a.date ?? new Date(0)
+        const bd = b.date_min ?? b.date ?? new Date(0)
+        return ad - bd
+      })
   }
 </script>
 
