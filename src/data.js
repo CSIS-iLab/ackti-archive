@@ -16,6 +16,9 @@ export default function getData() {
           ],
         },
         associated_agreement: row.associated_agreement,
+        associated_agreements_list: row.associated_agreement
+          ? row.associated_agreement.split(";").map(s => s.trim()).filter(Boolean)
+          : [],
         names: parseNames(row.names),
         type: row.type_of_resource,
         life_cycle_phase: row.life_cycle_phase,
@@ -193,6 +196,11 @@ function formatType(array) {
 }
 
 
+// data.js — replace the whole function
 function formatAssociatedAgreements(array) {
-  return [...new Set(array.map((el) => el.associated_agreement))]
+  const set = new Set();
+  array.forEach(row => {
+    (row.associated_agreements_list || []).forEach(a => set.add(a));
+  });
+  return [...set].sort((a, b) => a.localeCompare(b));
 }

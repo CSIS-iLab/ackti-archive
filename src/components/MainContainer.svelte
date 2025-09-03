@@ -34,7 +34,9 @@
             )
           : true
         const isSelectedAssociatedAgreement = selectedAssociatedAgreement
-          ? row.associated_agreement === selectedAssociatedAgreement
+          ? (row.associated_agreements_list || []).includes(
+              selectedAssociatedAgreement,
+            )
           : true
         const isSelectedType = selectedType
           ? row.type &&

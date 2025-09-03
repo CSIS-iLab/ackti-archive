@@ -23,16 +23,23 @@
   const eventTotal = dataset.data.length
   function getPGCount(associated_agreement) {
     return dataset.data.filter((row) =>
-      row.associated_agreement.includes(associated_agreement),
+      (row.associated_agreements_list || []).includes(associated_agreement)
     ).length
   }
 
   const optionIdentifier = "value"
   const labelIdentifier = "label"
 
+  const toSlug = (s) =>
+    (s || "all")
+      .trim()
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/gi, "-")
+      .replace(/(^-|-$)/g, "")
+
   function updateActiveTab(val) {
     console.log("updateActiveTab val: ", val)
-    const value = val ? val.split(" ").join("-") : "all"
+    const value = toSlug(val)
 
     const spanCountActive = document.querySelector(`.options__count--active`)
     const spanCount = document.querySelector(
@@ -254,7 +261,9 @@
 </script>
 
 <section class="table-container__header">
-  <h2 class="table-container__subtitle"><span class="table-container__subtitle-text">Explore Documents</span></h2>
+  <h2 class="table-container__subtitle">
+    <span class="table-container__subtitle-text">Explore Documents</span>
+  </h2>
 </section>
 
 <!-- tabs at the top (all, Other, Russia, NATO, US, Allies)-->
@@ -270,16 +279,16 @@
       >
     </button>
     {#each dataset.associated_agreements as associated_agreement}
-      <button
-        class="options__btn options__btn--tab options__btn--tab--{associated_agreement} "
-        data-tab={associated_agreement}
-        value={associated_agreement}
-        on:click={(event) => handleSelect(event, "Associated Agreement")}
-        >{associated_agreement}
-        <span
-          data-count={associated_agreement}
-          class="options__count options__count--{associated_agreement}"
-          >{getPGCount(associated_agreement)}</span
+  <button
+    class="options__btn options__btn--tab options__btn--tab--{toSlug(associated_agreement)}"
+    data-tab={toSlug(associated_agreement)}
+    value={associated_agreement}
+    on:click={(event) => handleSelect(event, "Associated Agreement")}
+  >{associated_agreement}
+  <span
+      data-count={toSlug(associated_agreement)}
+      class="options__count options__count--{toSlug(associated_agreement)}"
+    >{getPGCount(associated_agreement)}</span
         >
       </button>
     {/each}
